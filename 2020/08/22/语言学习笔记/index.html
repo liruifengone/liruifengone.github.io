@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android四大组件 Service 启动方法：startService，bindService onCreate（第一次启动）-&gt;onStartCommand()-&gt;onStart()(这两个方法每次都会调用)-&gt;onDestroy();   bindService onCreate（）-&gt;onBind()-&gt;onUnbind()-&gt;onDestroy()(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Android四大组件 Service 启动方法：startService，bindService onCreate（第一次启动）-&gt;onStartCommand()-&gt;onStart()(这两个方法每次都会调用)-&gt;onDestroy();   bindService onCreate（）-&gt;onBind()-&gt;onUnbind()-&gt;onDestroy()(">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/682504-857dabc892cee19c.png">
+<meta property="article:published_time" content="2020-08-22T08:52:55.664Z">
+<meta property="article:modified_time" content="2020-08-20T10:51:38.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/682504-857dabc892cee19c.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-语言学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-08-22T08:52:55.664Z" itemprop="datePublished">2020-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h5><ul>
+<li>Service<ul>
+<li>启动方法：startService，bindService<ul>
+<li>onCreate（第一次启动）-&gt;onStartCommand()-&gt;onStart()(这两个方法每次都会调用)-&gt;onDestroy();</li>
+</ul>
+</li>
+<li>bindService<ul>
+<li>onCreate（）-&gt;onBind()-&gt;onUnbind()-&gt;onDestroy()(均只调用一次)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Activity<ul>
+<li>Standard</li>
+<li>SingleTask</li>
+<li>SingleInstance</li>
+<li>SingleTop</li>
+</ul>
+</li>
+<li>ContentProvider<ul>
+<li>数据共享</li>
+<li>增删改查</li>
+</ul>
+</li>
+<li>BroadcastReceiver<ul>
+<li>两种注册方式<ul>
+<li>静态注册，AndroidManifest中注册</li>
+<li>动态注册，Context.registerReceiver()，需要反注册</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="NDK"><a href="#NDK" class="headerlink" title="NDK"></a>NDK</h5><ul>
+<li>原生开发工具包是一组可以让您在Android应用中利用C和c++代码的工具,可用以从您自己的源代码构建,或者利用现有的预构建库.</li>
+</ul>
+<h5 id="java权限修饰符"><a href="#java权限修饰符" class="headerlink" title="java权限修饰符"></a>java权限修饰符</h5><ul>
+<li>private，在同一个类中才能直接访问。</li>
+<li>public，都可以访问</li>
+<li>不写关键字，（default）在同一个包中能访问</li>
+<li>protected，不同包的子类中可以访问</li>
+<li>volatile关键字的作用很简单，就是一个线程在对主内存的某一份数据进行更改时，改完之后会立刻刷新到主内存。并且会强制让缓存了该变量的线程中的数据清空，必须从主内存重新读取最新数据。这样一来就保证了可见性</li>
+</ul>
+<h5 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h5><p>​        浅拷贝只是对指针的拷贝，拷贝后两个指针指向同一个内存空间，深拷贝不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。</p>
+<ul>
+<li><p>1.当函数的参数为对象时，实参传递给形参的实际上是实参的一个拷贝对象，系统自动通过拷贝构造函数实现；</p>
+</li>
+<li><p>2.当函数的返回值为一个对象时，该对象实际上是函数内对象的一个拷贝，用于返回函数调用处。</p>
+</li>
+<li><p>3.浅拷贝带来问题的本质在于析构函数释放多次堆内存，使用std::shared_ptr，可以完美解决这个问题。</p>
+</li>
+</ul>
+<h5 id="String-StringBuilder-StringBuffer"><a href="#String-StringBuilder-StringBuffer" class="headerlink" title="String StringBuilder StringBuffer"></a>String StringBuilder StringBuffer</h5><ul>
+<li>String的值是不可变的，这就导致每次对String的操作都会生成新的String对象。</li>
+<li>StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</li>
+<li>StringBuilder：可变字符序列，效率高，线程不安全。</li>
+<li>StringBuffer：可变字符序列，效率低，线程安全。</li>
+<li>StringBuffer线程安全是因为这个类中有大量的synchronized关键字修饰。</li>
+<li>String在修改多次以后会在内存中留下大量副本内存，极大的影响性能。</li>
+</ul>
+<h5 id="synchronized关键字与lock"><a href="#synchronized关键字与lock" class="headerlink" title="synchronized关键字与lock"></a>synchronized关键字与lock</h5><ul>
+<li>底层原理属于jvm层面、</li>
+<li>synchronized关键字解决的是多个线程之间访问资源的同步性，synchronized关键字可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。</li>
+<li>JVM 是通过进入、退出 对象监视器(Monitor) 来实现对方法、同步块的同步的，而对象监视器的本质依赖于底层操作系统的 互斥锁(Mutex Lock) 实现。</li>
+</ul>
+<h5 id="JAVA底层实现"><a href="#JAVA底层实现" class="headerlink" title="JAVA底层实现"></a>JAVA底层实现</h5><p>图如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/682504-857dabc892cee19c.png" alt="img"></p>
+<ul>
+<li>Java内存中的可见性，原子性和有序性<ul>
+<li>可见性：是指线程之间的可见性，一个线程修改的状态对另一个线程是可见的。</li>
+<li>原子性：原子是世界上的最小单位，具有不可分割性。在 Java 中 synchronized 和在 lock、unlock 中操作保证原子性。</li>
+<li>Java 语言提供了 volatile 和 synchronized 两个关键字来保证线程之间操作的有序性，volatile 是因为其本身包含“禁止指令重排序”的语义，synchronized 是由“一个变量在同一个时刻只允许一条线程对其进行 lock 操作”这条规则获得的，此规则决定了持有同一个对象锁的两个同步块只能串行执行。</li>
+<li>当把变量声明为volatile类型后，编译器与运行时都会注意到这个变量是共享的，因此不会将该变量上的操作与其他内存操作一起重排序。volatile变量不会被缓存在寄存器或者对其他处理器不可见的地方，因此在读取volatile类型的变量时总会返回最新写入的值。<ul>
+<li>当对非 volatile 变量进行读写的时候，每个线程先从内存拷贝变量到CPU缓存中。如果计算机有多个CPU，每个线程可能在不同的CPU上被处理，这意味着每个线程可以拷贝到不同的 CPU cache 中。而声明变量是 volatile 的，JVM 保证了每次读变量都从内存中读，跳过 CPU cache 这一步。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="内部类与静态内部类"><a href="#内部类与静态内部类" class="headerlink" title="内部类与静态内部类"></a>内部类与静态内部类</h5><ul>
+<li>静态内部类创建对象的时候，独立于外部类及其对象，就好像它是一个独立的类，可以和外部类一样使用。</li>
+<li>内部类创建对象的时候，不能独立于外部类，必须要先创建外部类的对象，然后再用这个对象来new出内部类的对象。</li>
+<li>内部类不可以有非常量的静态成员</li>
+</ul>
+<h5 id="抽象类与接口"><a href="#抽象类与接口" class="headerlink" title="抽象类与接口"></a>抽象类与接口</h5><ul>
+<li>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。</li>
+<li>不能实例化对象，必须被继承才能使用</li>
+<li>一个类只能继承一个抽象类</li>
+<li>在JAVA编程语言中接口是一个抽象类型，是抽象方法的集合，接口通常以interface来声明。一个类通过继承接口的方式，从而来继承接口的抽象方法。</li>
+<li>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。</li>
+<li>静态方法：静态方法不能访问非静态的数据和方法，因为这两项都依赖于具体的实例，而静态方法在对象实例化之前就已经被JVM装载，而类中的实例变量和实例对象必须在对象开辟堆内存之后才能使用。</li>
+</ul>
+<h5 id="JAVA多态"><a href="#JAVA多态" class="headerlink" title="JAVA多态"></a>JAVA多态</h5><ul>
+<li><p>多态是同一个行为具有多个不同表现形式或形态的能力。多态就是同一个接口，使用不同的实例而执行不同操作，如图所示</p>
+</li>
+<li><p>多态的实现方式：重写，接口，抽象类和抽象方法。</p>
+</li>
+<li><p>重写：</p>
+<ul>
+<li>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！</li>
+<li>当需要在子类中调用父类的被重写方法时，要使用 super 关键字。</li>
+<li>重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</li>
+</ul>
+</li>
+<li><p>注：java里没有虚函数，所有函数都具有虚函数的性质，除非加了final关键字编程非虚函数。</p>
+<p>(1)方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(Overloading)。</p>
+<p>(2)方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(Overriding)。</p>
+<p>(3)方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现。</p>
+</li>
+</ul>
+<h5 id="malloc的底层实现"><a href="#malloc的底层实现" class="headerlink" title="malloc的底层实现"></a>malloc的底层实现</h5><ul>
+<li><p>关于malloc获得的内存空间是否连续：</p>
+<p>对于虚拟空间：答案是连续的，malloc()分配后返回空间可以被看做是一块连续的地址</p>
+<p>对于物理空间：答案是不连续的，一块连续的内存空间是由若干不连续的物理页面拼凑而成的</p>
+</li>
+<li><p>malloc分配的内存位于堆 上， malloc通过底层的系统调用brk()（brk()用来标识堆的起始地址）和mmp()实现。</p>
+</li>
+<li><p>malloc()并不是直接在操作系统申请内存，而是在进程内存空间中申请内存，如果够用，则直接在进程内存空间申请，如果不够用，则会通过系统调用向操作系统申请内存。</p>
+</li>
+</ul>
+<h5 id="iostream"><a href="#iostream" class="headerlink" title="iostream"></a>iostream</h5><ul>
+<li><p>cout语句一般格式：</p>
+<p>cout&lt;&lt;expression1&lt;&lt;expression2&lt;&lt;expression3…&lt;&lt;expressionn;</p>
+</li>
+<li><p>cin语句一般格式：</p>
+<p>cin&gt;&gt;变量1&gt;&gt;变量2&gt;&gt;变量3&gt;&gt;…..&gt;&gt;变量n;</p>
+</li>
+<li><p>常用函数：</p>
+<p>cin.get();cin.getline();cin.getloc();</p>
+</li>
+</ul>
+<h5 id="C-map和unordered-map"><a href="#C-map和unordered-map" class="headerlink" title="C++  map和unordered_map"></a>C++  map和unordered_map</h5><ul>
+<li>map是有序的，二unordered_map是无序的，unordered_map查找更省时。</li>
+</ul>
+<h5 id="重写和重载"><a href="#重写和重载" class="headerlink" title="重写和重载"></a>重写和重载</h5><ul>
+<li>java<ul>
+<li>同名的方法如果有不同的参数列表（<strong>参数类型不同、参数个数不同甚至是参数顺序不同</strong>）则视为重载。同时，重载对返回类型没有要求，可以相同也可以不同，但<strong>不能通过返回类型是否相同来判断重载</strong>。</li>
+<li>其实就是<strong>在子类中把父类本身有的方法</strong>重新写一遍。子类继承了父类原有的方法，但有时子类并不想原封不动的继承父类中的某个方法，所以<strong>在方法名，参数列表，返回类型(除过子类中方法的返回值是父类中方法返回值的子类时)都相同的情况下，</strong> 对方法体进行修改或重写，这就是重写。但要注意<strong>子类函数的访问修饰权限不能少于父类的。</strong></li>
+</ul>
+</li>
+<li>C++<ul>
+<li>重载是指同一可访问区内被声明的几个具有不同参数列（参数的类型，个数，顺序不同）的同名函数，根据参数列表确定调用哪个函数，重载不关心函数返回类型。</li>
+<li>是指派生类中存在重新定义的函数。其函数名，参数列表，返回值类型，所有都必须同基类中被重写的函数一致。只有函数体不同（花括号内），派生类调用时会调用派生类的重写函数，不会调用被重写函数。重写的基类中被重写的函数必须有virtual修饰。</li>
+</ul>
+</li>
+</ul>
+<h5 id="C-内存管理"><a href="#C-内存管理" class="headerlink" title="C++内存管理"></a>C++内存管理</h5><ul>
+<li>在C++中，虚拟内存分为代码段、数据段、BSS段、堆区、文件映射区以及栈区六部分。</li>
+<li>代码段:包括只读存储区和文本区，其中只读存储区存储字符串常量，文本区存储程序的机器代码。</li>
+<li>数据段：存储程序中已初始化的全局变量和静态变量</li>
+<li>bss 段：存储未初始化的全局变量和静态变量（局部+全局），以及所有被初始化为0的全局变量和静态变量。</li>
+<li>堆区：调用new/malloc函数时在堆区动态分配内存，同时需要调用delete/free来手动释放申请的内存。</li>
+<li>映射区:存储动态链接库以及调用mmap函数进行的文件映射</li>
+<li>栈：使用栈空间存储函数的返回地址、参数、局部变量、返回值</li>
+</ul>
+<h5 id="虚函数与纯虚函数"><a href="#虚函数与纯虚函数" class="headerlink" title="虚函数与纯虚函数"></a>虚函数与纯虚函数</h5><ul>
+<li>纯虚函数没有任何内容，只能被继承，同时有“=0”标识，</li>
+<li>构造函数不能是虚函数，因为调用虚函数需要虚指针，但此时类的实例还没有被构造，所以不能是虚函数</li>
+<li>析构函数一般是虚函数，但malloc和free不会调用构造/析构函数</li>
+</ul>
+<h5 id="delete-与delete"><a href="#delete-与delete" class="headerlink" title="delete 与delete[]"></a>delete 与delete[]</h5><p>一个用于删除指针，一个用于删除多个指针数组</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cke5fekml0004xcfien2j41a3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统（自整理）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/os/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

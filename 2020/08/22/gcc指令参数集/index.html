@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="title:gcc指令集参数-x：设定文件所使用的语言，如 1gcc -x c hello.pig  -c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件 1gcc -c hello.c  -S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看 1gcc -S hello.c  -E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title:gcc指令集参数-x：设定文件所使用的语言，如 1gcc -x c hello.pig  -c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件 1gcc -c hello.c  -S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看 1gcc -S hello.c  -E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-22T08:52:55.484Z">
+<meta property="article:modified_time" content="2020-08-22T04:26:07.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gcc指令参数集" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86/" class="article-date">
+  <time datetime="2020-08-22T08:52:55.484Z" itemprop="datePublished">2020-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-gcc指令集参数"><a href="#title-gcc指令集参数" class="headerlink" title="title:gcc指令集参数"></a>title:gcc指令集参数</h2><p>-x：设定文件所使用的语言，如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -x c hello.pig</span><br></pre></td></tr></table></figure>
+
+<p>-c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c hello.c</span><br></pre></td></tr></table></figure>
+
+<p>-S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S hello.c</span><br></pre></td></tr></table></figure>
+
+<p>-E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c &gt; filename </span><br><span class="line">gcc -E hello.c | more</span><br></pre></td></tr></table></figure>
+
+<p>-o：指定可执行文件名称</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -o test</span><br></pre></td></tr></table></figure>
+
+<p>-i，-include：指定第一个寻找头文件的目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -I /usr/local/include/freetype</span><br></pre></td></tr></table></figure>
+
+<p>-l：指定程序要链接的库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -lpthread -lm</span><br></pre></td></tr></table></figure>
+
+<p>-L：指定库文件所在的路径名称</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -I/home/zhengshuang/tensorflow_c/include -L/home/zhengshuang/tensorflow_c/lib -ltensorflow test.cpp -o test</span><br></pre></td></tr></table></figure>
+
+<p>-Werror：gcc会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Werror -o test test.c</span><br></pre></td></tr></table></figure>
+
+<p>-w：不生成任何警告信息</p>
+<p>-W：生成所有警告信息</p>
+<p>附录：</p>
+<p>__attribute__：设置函数属性，变量属性和类型属性</p>
+<p>字节对齐：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S1</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;__attribute__((aligned(<span class="number">8</span>)));</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S2</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注：以上注明了S1的字节对齐为8，则S1的大小为8字节,S2的大小为6字节。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86/" data-id="cke5fekmg0001xcfibxwp7hab" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux操作系统常用命令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统（自整理）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/os/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
