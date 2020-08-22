@@ -64,6 +64,122 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-gcc指令参数集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" class="article-date">
+  <time datetime="2020-08-22T09:28:31.196Z" itemprop="datePublished">2020-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/">gcc指令参数集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>-x：设定文件所使用的语言，如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -x c hello.pig</span><br></pre></td></tr></table></figure>
+
+<p>-c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c hello.c</span><br></pre></td></tr></table></figure>
+
+<p>-S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S hello.c</span><br></pre></td></tr></table></figure>
+
+<p>-E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c &gt; filename </span><br><span class="line">gcc -E hello.c | more</span><br></pre></td></tr></table></figure>
+
+<p>-o：指定可执行文件名称</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -o test</span><br></pre></td></tr></table></figure>
+
+<p>-i，-include：指定第一个寻找头文件的目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -I /usr/local/include/freetype</span><br></pre></td></tr></table></figure>
+
+<p>-l：指定程序要链接的库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -lpthread -lm</span><br></pre></td></tr></table></figure>
+
+<p>-L：指定库文件所在的路径名称</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -I/home/zhengshuang/tensorflow_c/include -L/home/zhengshuang/tensorflow_c/lib -ltensorflow test.cpp -o test</span><br></pre></td></tr></table></figure>
+
+<p>-Werror：gcc会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Werror -o test test.c</span><br></pre></td></tr></table></figure>
+
+<p>-w：不生成任何警告信息</p>
+<p>-W：生成所有警告信息</p>
+<p>附录：</p>
+<p>__attribute__：设置函数属性，变量属性和类型属性</p>
+<p>字节对齐：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S1</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;__attribute__((aligned(<span class="number">8</span>)));</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S2</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注：以上注明了S1的字节对齐为8，则S1的大小为8字节,S2的大小为6字节。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" data-id="cke5gnlq500035vfi9trqd8rv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2020-08-22T09:28:21.304Z" itemprop="datePublished">2020-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>logout,login：登录shell和注销的命令</li>
+<li>more，less，head，tail：显示文件内容</li>
+<li>ps：展现正在运行的进程的信息</li>
+<li>top：提供系统的实时信息</li>
+<li>trace：strace常用来跟踪进程执行时的系统调用和所接收的信号</li>
+<li>uname：打印静态系统信息</li>
+<li>ifconfig：显示以太网卡的配置</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cke5gnlq200015vficqn8f1l5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-语言学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
@@ -251,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cke5gerpw0004vbfi517l9nyn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cke5gnlq900065vfiah9ecwfd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -617,7 +733,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" data-id="cke5gerq20006vbfi1mo5df5w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" data-id="cke5gnlqi00085vfieh0j3roj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -785,7 +901,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="cke5gerq10005vbfi2v9dcwh9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="cke5gnlqh00075vfi6pvybyes" class="article-share-link">Share</a>
       
       
     </footer>
@@ -892,7 +1008,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-id="cke5gerpu0002vbfi00xdda9u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-id="cke5gnlq800055vfi7v3z3c7e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1255,123 +1371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/os/" data-id="cke5gerpv0003vbfi6uwkf51r" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time datetime="2020-08-22T08:52:55.496Z" itemprop="datePublished">2020-08-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>logout,login：登录shell和注销的命令</li>
-<li>more，less，head，tail：显示文件内容</li>
-<li>ps：展现正在运行的进程的信息</li>
-<li>top：提供系统的实时信息</li>
-<li>trace：strace常用来跟踪进程执行时的系统调用和所接收的信号</li>
-<li>uname：打印静态系统信息</li>
-<li>ifconfig：显示以太网卡的配置</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cke5gerph0000vbfi73rngfy5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-gcc指令参数集" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86/" class="article-date">
-  <time datetime="2020-08-22T08:52:55.484Z" itemprop="datePublished">2020-08-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86/">gcc指令参数集</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>-x：设定文件所使用的语言，如</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -x c hello.pig</span><br></pre></td></tr></table></figure>
-
-<p>-c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c hello.c</span><br></pre></td></tr></table></figure>
-
-<p>-S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S hello.c</span><br></pre></td></tr></table></figure>
-
-<p>-E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c &gt; filename </span><br><span class="line">gcc -E hello.c | more</span><br></pre></td></tr></table></figure>
-
-<p>-o：指定可执行文件名称</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -o test</span><br></pre></td></tr></table></figure>
-
-<p>-i，-include：指定第一个寻找头文件的目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -I /usr/local/include/freetype</span><br></pre></td></tr></table></figure>
-
-<p>-l：指定程序要链接的库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -lpthread -lm</span><br></pre></td></tr></table></figure>
-
-<p>-L：指定库文件所在的路径名称</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -I/home/zhengshuang/tensorflow_c/include -L/home/zhengshuang/tensorflow_c/lib -ltensorflow test.cpp -o test</span><br></pre></td></tr></table></figure>
-
-<p>-Werror：gcc会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Werror -o test test.c</span><br></pre></td></tr></table></figure>
-
-<p>-w：不生成任何警告信息</p>
-<p>-W：生成所有警告信息</p>
-<p>附录：</p>
-<p>__attribute__：设置函数属性，变量属性和类型属性</p>
-<p>字节对齐：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S1</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;__attribute__((aligned(<span class="number">8</span>)));</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S2</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>注：以上注明了S1的字节对齐为8，则S1的大小为8字节,S2的大小为6字节。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86/" data-id="cke5gerps0001vbfi1b032l4g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/os/" data-id="cke5gnlq700045vfid3rv76v9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1412,6 +1412,14 @@
       <ul>
         
           <li>
+            <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/">gcc指令参数集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">语言学习笔记</a>
           </li>
         
@@ -1421,14 +1429,6 @@
         
           <li>
             <a href="/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记与整理</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统（自整理）</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/22/os/">操作系统，华中科技大学MOOC笔记</a>
           </li>
         
       </ul>
