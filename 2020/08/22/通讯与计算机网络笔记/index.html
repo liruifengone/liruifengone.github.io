@@ -7,24 +7,24 @@
   
   <title>通信原理与计算机网络 | LRF的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通信原理与计算机网络滤波器算法 高斯滤波  巴特沃斯滤波  IIR滤波器（无限冲激响应滤波器）  直接1型。基本结构。先实现系统函数的零点，再实现极点，需要2N个乘法器和2N个延迟器$$H(z) &#x3D; \frac{Y(z)}{X(z)} &#x3D; \frac{\sum^{M}_{k&#x3D;0}b_k\cdot z^{-k}}{1-\sum^{N}_{k&#x3D;1}a_k\cdot z^{-k}} &#x3D; H_1(z)\c">
+  <meta name="description" content="通信原理与计算机网络  滤波器算法   高斯滤波   巴特沃斯滤波   IIR滤波器（无限冲激响应滤波器）   直接1型。基本结构。先实现系统函数的零点，再实现极点，需要2N个乘法器和2N个延迟器 H(z)&#x3D;Y(z)X(z)&#x3D;∑k&#x3D;0Mbk⋅z−k1−∑k&#x3D;1Nak⋅z−k&#x3D;H1(z)⋅H2(z)H(z) &#x3D; \frac{Y(z)}{X(z)} &#x3D; \frac{\sum^{M}_{k&#x3D;0}b_k">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通信原理与计算机网络">
 <meta property="og:url" content="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="LRF的博客">
-<meta property="og:description" content="通信原理与计算机网络滤波器算法 高斯滤波  巴特沃斯滤波  IIR滤波器（无限冲激响应滤波器）  直接1型。基本结构。先实现系统函数的零点，再实现极点，需要2N个乘法器和2N个延迟器$$H(z) &#x3D; \frac{Y(z)}{X(z)} &#x3D; \frac{\sum^{M}_{k&#x3D;0}b_k\cdot z^{-k}}{1-\sum^{N}_{k&#x3D;1}a_k\cdot z^{-k}} &#x3D; H_1(z)\c">
+<meta property="og:description" content="通信原理与计算机网络  滤波器算法   高斯滤波   巴特沃斯滤波   IIR滤波器（无限冲激响应滤波器）   直接1型。基本结构。先实现系统函数的零点，再实现极点，需要2N个乘法器和2N个延迟器 H(z)&#x3D;Y(z)X(z)&#x3D;∑k&#x3D;0Mbk⋅z−k1−∑k&#x3D;1Nak⋅z−k&#x3D;H1(z)⋅H2(z)H(z) &#x3D; \frac{Y(z)}{X(z)} &#x3D; \frac{\sum^{M}_{k&#x3D;0}b_k">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:/Users/11736/AppData/Roaming/Typora/typora-user-images/image-20200727145013334.png">
-<meta property="og:image" content="c:/Users/11736/AppData/Roaming/Typora/typora-user-images/image-20200727145535362.png">
-<meta property="og:image" content="c:/Users/11736/AppData/Roaming/Typora/typora-user-images/image-20200711162941712.png">
-<meta property="og:image" content="c:/Users/11736/AppData/Roaming/Typora/typora-user-images/image-20200711161655729.png">
+<meta property="og:image" content="c:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200727145013334.png">
+<meta property="og:image" content="c:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200727145535362.png">
+<meta property="og:image" content="c:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200711162941712.png">
+<meta property="og:image" content="c:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200711161655729.png">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2013/11/cgiarch.gif">
-<meta property="og:image" content="c:/Users/11736/AppData/Roaming/Typora/typora-user-images/image-20200716153632698.png">
+<meta property="og:image" content="c:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200716153632698.png">
 <meta property="article:published_time" content="2020-08-22T08:52:55.632Z">
 <meta property="article:modified_time" content="2020-08-25T05:52:38.883Z">
 <meta property="article:author" content="LRF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/11736/AppData/Roaming/Typora/typora-user-images/image-20200727145013334.png">
+<meta name="twitter:image" content="c:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200727145013334.png">
   
     <link rel="alternate" href="/atom.xml" title="LRF的博客" type="application/atom+xml">
   
@@ -34,6 +34,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -95,60 +96,91 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="通信原理与计算机网络"><a href="#通信原理与计算机网络" class="headerlink" title="通信原理与计算机网络"></a>通信原理与计算机网络</h3><h5 id="滤波器算法"><a href="#滤波器算法" class="headerlink" title="滤波器算法"></a>滤波器算法</h5><ul>
-<li><p>高斯滤波</p>
-</li>
-<li><p>巴特沃斯滤波</p>
-</li>
-<li><p>IIR滤波器（无限冲激响应滤波器）</p>
+        <h3 id="通信原理与计算机网络"><a class="markdownIt-Anchor" href="#通信原理与计算机网络"></a> 通信原理与计算机网络</h3>
+<h5 id="滤波器算法"><a class="markdownIt-Anchor" href="#滤波器算法"></a> 滤波器算法</h5>
 <ul>
-<li><p>直接1型。基本结构。先实现系统函数的零点，再实现极点，需要2N个乘法器和2N个延迟器<br>$$<br>H(z) = \frac{Y(z)}{X(z)} = \frac{\sum^{M}_{k=0}b_k\cdot z^{-k}}{1-\sum^{N}_{k=1}a_k\cdot z^{-k}} = H_1(z)\cdot H_2(z)<br>$$<br><img src="C:\Users\11736\AppData\Roaming\Typora\typora-user-images\image-20200727145013334.png" alt="image-20200727145013334"></p>
+<li>
+<p>高斯滤波</p>
 </li>
-<li><p>直接2型。先实现系统函数的极点，再实现零点。需要N个延迟器和2N个乘法器<br>$$<br>H(z) = \frac{Y(z)}{X(z)} =  H_2(z)\cdot H_1(z)<br>$$<br><img src="C:\Users\11736\AppData\Roaming\Typora\typora-user-images\image-20200727145535362.png" alt="image-20200727145535362"></p>
+<li>
+<p>巴特沃斯滤波</p>
 </li>
-<li><p>级联型，并联型</p>
+<li>
+<p>IIR滤波器（无限冲激响应滤波器）</p>
+<ul>
+<li>
+<p>直接1型。基本结构。先实现系统函数的零点，再实现极点，需要2N个乘法器和2N个延迟器</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>Y</mi><mo>(</mo><mi>z</mi><mo>)</mo></mrow><mrow><mi>X</mi><mo>(</mo><mi>z</mi><mo>)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>M</mi></mrow></msubsup><msub><mi>b</mi><mi>k</mi></msub><mo>⋅</mo><msup><mi>z</mi><mrow><mo>−</mo><mi>k</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>−</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><msub><mi>a</mi><mi>k</mi></msub><mo>⋅</mo><msup><mi>z</mi><mrow><mo>−</mo><mi>k</mi></mrow></msup></mrow></mfrac><mo>=</mo><msub><mi>H</mi><mn>1</mn></msub><mo>(</mo><mi>z</mi><mo>)</mo><mo>⋅</mo><msub><mi>H</mi><mn>2</mn></msub><mo>(</mo><mi>z</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">H(z) = \frac{Y(z)}{X(z)} = \frac{\sum^{M}_{k=0}b_k\cdot z^{-k}}{1-\sum^{N}_{k=1}a_k\cdot z^{-k}} = H_1(z)\cdot H_2(z)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.5391180000000002em;"></span><span class="strut bottom" style="height:2.571459em;vertical-align:-1.032341em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.732331em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">⋅</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.289em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord">−</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.69001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">⋅</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mbin">⋅</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span></span></p>
+<p><img src="C:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200727145013334.png" alt="image-20200727145013334" /></p>
+</li>
+<li>
+<p>直接2型。先实现系统函数的极点，再实现零点。需要N个延迟器和2N个乘法器</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>Y</mi><mo>(</mo><mi>z</mi><mo>)</mo></mrow><mrow><mi>X</mi><mo>(</mo><mi>z</mi><mo>)</mo></mrow></mfrac><mo>=</mo><msub><mi>H</mi><mn>2</mn></msub><mo>(</mo><mi>z</mi><mo>)</mo><mo>⋅</mo><msub><mi>H</mi><mn>1</mn></msub><mo>(</mo><mi>z</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">H(z) = \frac{Y(z)}{X(z)} =  H_2(z)\cdot H_1(z)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mbin">⋅</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span></span></p>
+<p><img src="C:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200727145535362.png" alt="image-20200727145535362" /></p>
+</li>
+<li>
+<p>级联型，并联型</p>
 </li>
 </ul>
 </li>
-<li><p>FIR滤波器</p>
+<li>
+<p>FIR滤波器</p>
 <ul>
-<li><p>FIR系统仅在 处有N-1阶极点，在其它地方没有极点，有(N-1)个零点分布在有限Z平面内的任何位置上</p>
+<li>
+<p>FIR系统仅在 处有N-1阶极点，在其它地方没有极点，有(N-1)个零点分布在有限Z平面内的任何位置上</p>
 </li>
-<li><p>直接型<br>$$<br>差分方程：y(n) = \sum^{N-1}<em>{k=0}h(k)x(n-k) \<br>系统函数：H(z) = \sum^{N-1}</em>{n=0}h(n)z^{-n}<br>$$</p>
+<li>
+<p>直接型</p>
+差分方程：y(n) = \sum^{N-1}_{k=0}h(k)x(n-k) \\
+系统函数：H(z) = \sum^{N-1}_{n=0}h(n)z^{-n}
+
 </li>
-<li><p>级联型</p>
+<li>
+<p>级联型</p>
 </li>
-<li><p>快速卷积型</p>
+<li>
+<p>快速卷积型</p>
 </li>
-<li><p>线性相位型</p>
+<li>
+<p>线性相位型</p>
 </li>
-<li><p>频率取样型</p>
+<li>
+<p>频率取样型</p>
 </li>
 </ul>
 </li>
-<li><p>FIR与IIR滤波器的区别</p>
+<li>
+<p>FIR与IIR滤波器的区别</p>
 <p>IIR滤波器的系统函数是有理分式，其分母多项式对应于反馈电路。因而他是递归结构的；FIR滤波器的系统函数是有限多项式，属于非递归结构</p>
-<p>IIR幅频特性精度很高，不是线性相位的，可以应用于对相位信息不敏感的音频信号上；<br>FIR幅频特性精度较之于IIR低，但是线性相位，就是不同频率分量的信号经过FIR滤波器后他们的时间差不变。这是很好的性质</p>
+<p>IIR幅频特性精度很高，不是线性相位的，可以应用于对相位信息不敏感的音频信号上；<br />
+FIR幅频特性精度较之于IIR低，但是线性相位，就是不同频率分量的信号经过FIR滤波器后他们的时间差不变。这是很好的性质</p>
 </li>
 </ul>
-<h5 id="802-3（Ethernet）"><a href="#802-3（Ethernet）" class="headerlink" title="802.3（Ethernet）"></a>802.3（Ethernet）</h5><ul>
+<h5 id="8023ethernet"><a class="markdownIt-Anchor" href="#8023ethernet"></a> 802.3（Ethernet）</h5>
+<ul>
 <li>星型</li>
 </ul>
-<h5 id="802-11（wireless-LAN）"><a href="#802-11（wireless-LAN）" class="headerlink" title="802.11（wireless LAN）"></a>802.11（wireless LAN）</h5><ul>
-<li><p>802.11数据包类型</p>
+<h5 id="80211wireless-lan"><a class="markdownIt-Anchor" href="#80211wireless-lan"></a> 802.11（wireless LAN）</h5>
+<ul>
+<li>
+<p>802.11数据包类型</p>
 <ul>
 <li>数据，用来携带更高层次的数据，负责在工作站之间传输数据</li>
 <li>管理，管理数据包控制网络的管理功能</li>
 <li>控制，控制对物理媒介的访问，如光缆等。</li>
 </ul>
 </li>
-<li><p>802.11协议管理帧</p>
+<li>
+<p>802.11协议管理帧</p>
 <ul>
 <li>数据链路层是一个很靠近底层的通信协议，它使用Bit来表示信息(也使用Bit来标识数据包的开始和结束)，所以数据链路层的协议格式并没有强制要求一个固定的长度，即802.11协议长度是可变的。不同功能的数据帧长度会不一样。这一特性说明mac802.11数据帧显得更加灵活，然而，也会更加复杂。</li>
 <li>管理帧包括：beacon帧，探测请求帧，探测响应帧等。控制帧包括：RTS帧，CTS帧，ACK帧，ps-poll帧。</li>
 </ul>
 </li>
-<li><p>四种主要物理组件</p>
+<li>
+<p>四种主要物理组件</p>
 <ul>
 <li>工作站（Station），指配备无线网络接口的计算设备，即支持802.11的终端设备</li>
 <li>接入点（Access Point），具备无线至有线桥接功能的设备称为接入点，提供接入服务并将802.11MAC帧转换为以太网帧。</li>
@@ -156,77 +188,122 @@
 <li>分布式系统（Distribution System），是802.11的逻辑组件，负责将帧传送至目的地，将各个AP连接起来的骨干网络</li>
 </ul>
 </li>
-<li><p>802.11层次和功能</p>
+<li>
+<p>802.11层次和功能</p>
 <ul>
-<li><p>MAC</p>
+<li>
+<p>MAC</p>
 <ul>
 <li>访问机制，分段，加密</li>
 </ul>
 </li>
-<li><p>MAC管理</p>
+<li>
+<p>MAC管理</p>
 <ul>
 <li>联盟，鉴权，同步，漫游，MIB管理信息库，电源管理</li>
 </ul>
 </li>
-<li><p>PLCP物理层汇聚协议</p>
+<li>
+<p>PLCP物理层汇聚协议</p>
 <ul>
 <li>空闲信道评估信道（载波监听）</li>
 </ul>
 </li>
-<li><p>PMD物理媒介相关</p>
+<li>
+<p>PMD物理媒介相关</p>
 <ul>
 <li>调制，编码</li>
 </ul>
 </li>
-<li><p>PHY管理</p>
+<li>
+<p>PHY管理</p>
 <ul>
 <li>信道管理，MIB管理信息库</li>
 </ul>
 </li>
-<li><p>站点管理</p>
+<li>
+<p>站点管理</p>
 <ul>
-<li><p>协调所有管理功能</p>
-<p><img src="C:\Users\11736\AppData\Roaming\Typora\typora-user-images\image-20200711162941712.png" alt="image-20200711162941712"></p>
+<li>
+<p>协调所有管理功能</p>
+<p><img src="C:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200711162941712.png" alt="image-20200711162941712" /></p>
 </li>
 </ul>
 </li>
 </ul>
-<p><img src="C:\Users\11736\AppData\Roaming\Typora\typora-user-images\image-20200711161655729.png" alt="image-20200711161655729"></p>
+<p><img src="C:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200711161655729.png" alt="image-20200711161655729" /></p>
 </li>
 </ul>
-<h5 id="OFDM-正交频分复用技术"><a href="#OFDM-正交频分复用技术" class="headerlink" title="OFDM(正交频分复用技术)"></a>OFDM(正交频分复用技术)</h5><ul>
-<li><p>采用多个载波，将信道分为多个子信道，将基带码元均匀的分散到每个载波上，降低码元速率，减小码间串扰。</p>
+<h5 id="ofdm正交频分复用技术"><a class="markdownIt-Anchor" href="#ofdm正交频分复用技术"></a> OFDM(正交频分复用技术)</h5>
+<ul>
+<li>
+<p>采用多个载波，将信道分为多个子信道，将基带码元均匀的分散到每个载波上，降低码元速率，减小码间串扰。</p>
 </li>
-<li><p>每个子载波满足公式：<br>$$<br>f_k = \frac k {2T_B}<br>$$<br>其中$k$为整数，$T_B$为码元持续时间最小子载频间隔为：<br>$$<br>\Delta f = f_k - f_i = \frac{1}{T_B}<br>$$</p>
+<li>
+<p>每个子载波满足公式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>k</mi></msub><mo>=</mo><mfrac><mi>k</mi><mrow><mn>2</mn><msub><mi>T</mi><mi>B</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">f_k = \frac k {2T_B}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.20744em;vertical-align:-0.8360000000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>为整数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">T_B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>为码元持续时间最小子载频间隔为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi><mo>=</mo><msub><mi>f</mi><mi>k</mi></msub><mo>−</mo><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msub><mi>T</mi><mi>B</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\Delta f = f_k - f_i = \frac{1}{T_B}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.32144em;"></span><span class="strut bottom" style="height:2.1574400000000002em;vertical-align:-0.8360000000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">Δ</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
 </li>
 </ul>
-<h5 id="MIMO技术"><a href="#MIMO技术" class="headerlink" title="MIMO技术"></a>MIMO技术</h5><ul>
-<li><p>典型MIMO系统包含$m$个发送天线和$n$个接收天线，如果定义发送天线$i$和接收天线$j$之前的信道为$h_{ij}$，则可以得到$n\times m$的信道矩阵。<br>$$<br>\begin{bmatrix}<br>\boldsymbol{h_{11}}&amp;\boldsymbol{h_{12}}&amp;\boldsymbol{h_{13}}&amp;\boldsymbol{h_{14}}\<br>\boldsymbol{h_{21}}&amp;\boldsymbol{h_{22}}&amp;\boldsymbol{h_{23}}&amp;\boldsymbol{h_{24}}\<br>\boldsymbol{h_{31}}&amp;\boldsymbol{h_{32}}&amp;\boldsymbol{h_{33}}&amp;\boldsymbol{h_{34}}\<br>\boldsymbol{h_{41}}&amp;\boldsymbol{h_{42}}&amp;\boldsymbol{h_{43}}&amp;\boldsymbol{h_{44}}\<br>\end{bmatrix}<br>$$</p>
+<h5 id="mimo技术"><a class="markdownIt-Anchor" href="#mimo技术"></a> MIMO技术</h5>
+<ul>
+<li>
+<p>典型MIMO系统包含<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span>个发送天线和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>个接收天线，如果定义发送天线<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>和接收天线<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>之前的信道为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">h_{ij}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">h</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，则可以得到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n\times m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">×</span><span class="mord mathit">m</span></span></span></span>的信道矩阵。</p>
+\begin{bmatrix}
+\boldsymbol{h_{11}}&\boldsymbol{h_{12}}&\boldsymbol{h_{13}}&\boldsymbol{h_{14}}\\
+\boldsymbol{h_{21}}&\boldsymbol{h_{22}}&\boldsymbol{h_{23}}&\boldsymbol{h_{24}}\\
+\boldsymbol{h_{31}}&\boldsymbol{h_{32}}&\boldsymbol{h_{33}}&\boldsymbol{h_{34}}\\
+\boldsymbol{h_{41}}&\boldsymbol{h_{42}}&\boldsymbol{h_{43}}&\boldsymbol{h_{44}}\\
+\end{bmatrix}
+
 </li>
-<li><p>当收发天线之间的信道为窄带时不变系统时，可以得到MIMO系统接收信号的表现形式为,其中接收信号$Y$，发送信号$X$，噪声为$n$：<br>$$<br>\boldsymbol{Y = HX+n}<br>$$</p>
+<li>
+<p>当收发天线之间的信道为窄带时不变系统时，可以得到MIMO系统接收信号的表现形式为,其中接收信号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span>，发送信号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>，噪声为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>：</p>
+\boldsymbol{Y = HX+n}
+
 </li>
-<li><p>MIMO系统的信道容量由以下公式决定：<br>$$<br>C = mlog_2(\frac{n}{m}\times \frac{S}{N})<br>$$<br>其中普通信道的香农公式为：<br>$$<br>C = Blog_2(1+\frac{S}{N})<br>$$<br>以上参数的意义为：C：信道容量（bps)，B：信道的频带宽度，S/N：信噪比，m：发送天线的个数，n：接收天线的个数。</p>
+<li>
+<p>MIMO系统的信道容量由以下公式决定：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mi>m</mi><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo>(</mo><mfrac><mrow><mi>n</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mo>×</mo><mfrac><mrow><mi>S</mi></mrow><mrow><mi>N</mi></mrow></mfrac><mo>)</mo></mrow><annotation encoding="application/x-tex">C = mlog_2(\frac{n}{m}\times \frac{S}{N})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.36033em;"></span><span class="strut bottom" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mbin">×</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></span></p>
 </li>
-<li><p>SU-MIMO和MU-MIMO</p>
+</ul>
+<p>其中普通信道的香农公式为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mi>B</mi><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo>(</mo><mn>1</mn><mo>+</mo><mfrac><mrow><mi>S</mi></mrow><mrow><mi>N</mi></mrow></mfrac><mo>)</mo></mrow><annotation encoding="application/x-tex">C = Blog_2(1+\frac{S}{N})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.36033em;"></span><span class="strut bottom" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>以上参数的意义为：C：信道容量（bps)，B：信道的频带宽度，S/N：信噪比，m：发送天线的个数，n：接收天线的个数。</p>
+<ul>
+<li>
+<p>SU-MIMO和MU-MIMO</p>
 <p>如果MIMO系统用于增加一个用户的速率，称之为单用户MIMO（SU-MIMO)。多用户MIMO（MU-MIMO）：如果每个独立的数据流分配给不同的用户，称之为多用户。这种模式主要对上行链路有用。从UE的复杂程度和体积来看，每个UE只能有一个发射天线，因此称之为“协同MIMO”</p>
 </li>
-<li><p>Massive MIMO（大规模天线技术）</p>
+<li>
+<p>Massive MIMO（大规模天线技术）</p>
 <p>传统的MIMO我们称之为2D-MIMO，以8天线为例，实际信号在做覆盖时，只能在水平方向移动，垂直方向是不动的，信号类似一个平面发射出去，而Massive MIMO，是信号水平维度空间基础上引入垂直维度的空域进行利用，信号的辐射状是个电磁波束。所以Massive MIMO也称为3D-MIMO。</p>
 </li>
 </ul>
-<h5 id="HTTP与HTTPS"><a href="#HTTP与HTTPS" class="headerlink" title="HTTP与HTTPS"></a>HTTP与HTTPS</h5><ul>
-<li><p>HTTP简介</p>
+<h5 id="http与https"><a class="markdownIt-Anchor" href="#http与https"></a> HTTP与HTTPS</h5>
 <ul>
-<li><p>无连接，无连接的含义是限制每次连接只处理一个请求</p>
+<li>
+<p>HTTP简介</p>
+<ul>
+<li>
+<p>无连接，无连接的含义是限制每次连接只处理一个请求</p>
 </li>
-<li><p>媒体独立，任何类型的数据都可以通过HTTP发送</p>
+<li>
+<p>媒体独立，任何类型的数据都可以通过HTTP发送</p>
 </li>
-<li><p>无状态，对于事务没有记忆能力</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2013/11/cgiarch.gif" alt="cgiarch"></p>
+<li>
+<p>无状态，对于事务没有记忆能力</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/11/cgiarch.gif" alt="cgiarch" /></p>
 </li>
 </ul>
 </li>
-<li><p>常见http状态码</p>
+<li>
+<p>常见http状态码</p>
 <ul>
 <li>200，请求成功</li>
 <li>301，资源被永久转移到其他URL</li>
@@ -234,9 +311,11 @@
 <li>500，内部服务器错误</li>
 </ul>
 </li>
-<li><p>HTTP请求方法</p>
+<li>
+<p>HTTP请求方法</p>
 <ul>
-<li>HTTP1.0，GET，POST，HEAD，<ul>
+<li>HTTP1.0，GET，POST，HEAD，
+<ul>
 <li>GET，请求指定页面信息，并返回实体</li>
 <li>HEAD，请求指定页面信息的报头</li>
 <li>POST，向指定资源提交数据并处理请求，</li>
@@ -245,7 +324,8 @@
 <li>HTTP1.1新增，OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法</li>
 </ul>
 </li>
-<li><p>HTTPS</p>
+<li>
+<p>HTTPS</p>
 <ul>
 <li>就是在HTTP的基础上增加了数据加密，是密文传输</li>
 <li>HTTPS请求的过程需要CA证书要验证身份以保证客户端请求到服务器端之后，传回的响应是来自于服务器端，而HTTP则不需要CA证书。</li>
@@ -255,21 +335,29 @@
 </ul>
 </li>
 </ul>
-<h5 id="TCP-UDP"><a href="#TCP-UDP" class="headerlink" title="TCP/UDP"></a>TCP/UDP</h5><ul>
-<li><p>TCP三次握手四次挥手</p>
+<h5 id="tcpudp"><a class="markdownIt-Anchor" href="#tcpudp"></a> TCP/UDP</h5>
 <ul>
-<li><p>三次握手的过程</p>
+<li>
+<p>TCP三次握手四次挥手</p>
+<ul>
+<li>
+<p>三次握手的过程</p>
 <p>1）主机A向主机B发送TCP连接请求数据包，其中包含主机A的初始序列号seq(A)=x。（其中报文中同步标志位SYN=1，ACK=0，表示这是一个TCP连接请求数据报文；序号seq=x，表明传输数据时的第一个数据字节的序号是x）；</p>
 <p>2）主机B收到请求后，会发回连接确认数据包。（其中确认报文段中，标识位SYN=1，ACK=1，表示这是一个TCP连接响应数据报文，并含主机B的初始序列号seq(B)=y，以及主机B对主机A初始序列号的确认号ack(B)=seq(A)+1=x+1）</p>
 <p>3）第三次，主机A收到主机B的确认报文后，还需作出确认，即发送一个序列号seq(A)=x+1；确认号为ack(A)=y+1的报文；</p>
 </li>
-<li><p>四次挥手过程</p>
-<p>假设主机A为客户端，主机B为服务器，其释放TCP连接的过程如下：<br>1） 关闭客户端到服务器的连接：首先客户端A发送一个FIN，用来关闭客户到服务器的数据传送，然后等待服务器的确认。其中终止标志位FIN=1，序列号seq=u。<br>2） 服务器收到这个FIN，它发回一个ACK，确认号ack为收到的序号加1。<br>3） 关闭服务器到客户端的连接：也是发送一个FIN给客户端。</p>
+<li>
+<p>四次挥手过程</p>
+<p>假设主机A为客户端，主机B为服务器，其释放TCP连接的过程如下：<br />
+1） 关闭客户端到服务器的连接：首先客户端A发送一个FIN，用来关闭客户到服务器的数据传送，然后等待服务器的确认。其中终止标志位FIN=1，序列号seq=u。<br />
+2） 服务器收到这个FIN，它发回一个ACK，确认号ack为收到的序号加1。<br />
+3） 关闭服务器到客户端的连接：也是发送一个FIN给客户端。</p>
 <p>4） 客户段收到FIN后，并发回一个ACK报文确认，并将确认序号seq设置为收到序号加1。 首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。</p>
 </li>
 </ul>
 </li>
-<li><p>TCP与UDP</p>
+<li>
+<p>TCP与UDP</p>
 <ul>
 <li>TCP面向连接，UDP是无连接的</li>
 <li>TCP 提供可靠的服务，也就是说，通过 TCP 连接传送的数据，无差错，不丢失，不重复，且按序到达；UDP 尽最大努力交付，即不保证可靠交付</li>
@@ -280,159 +368,212 @@
 <li>TCP 首部开销20字节；UDP 的首部开销小，只有 8 个字节</li>
 </ul>
 </li>
-<li><p>TCP可靠的原因：</p>
+<li>
+<p>TCP可靠的原因：</p>
 <ul>
 <li>三次握手，超时重传，滑动窗口，拥塞控制。</li>
 </ul>
 </li>
-<li><p>TCP黏包问题</p>
+<li>
+<p>TCP黏包问题</p>
 <ul>
 <li>TCP是一个面向字节流的传输服务，数据没有边界，可能出现两个数据包黏在一起的情况。</li>
 <li>解决：1，发送定长包，2，包头加上包体长度，3，设置边界符号，4，使用更加复杂的应用层协议</li>
 </ul>
 </li>
-<li><p>流量控制</p>
+<li>
+<p>流量控制</p>
 <ul>
-<li><p>接收方根据接收窗口的空闲缓存来通知（advertisedWindowSize）发送方控制发送窗口，使得发送方发送的数据量不大于接收方的接收窗口，已达到流量控制的目的。如果接收方read和receive的速度一样快，那么接收窗口发送给advertisedWindowSize的大小为MaxRecvBuffer，发送方获得advertisedWindowSize之后会计算出发送方可以发送数据的EffectiveWindowSize,这个值表征了发送方目前可以发送多少数据。</p>
+<li>
+<p>接收方根据接收窗口的空闲缓存来通知（advertisedWindowSize）发送方控制发送窗口，使得发送方发送的数据量不大于接收方的接收窗口，已达到流量控制的目的。如果接收方read和receive的速度一样快，那么接收窗口发送给advertisedWindowSize的大小为MaxRecvBuffer，发送方获得advertisedWindowSize之后会计算出发送方可以发送数据的EffectiveWindowSize,这个值表征了发送方目前可以发送多少数据。</p>
 <p>如果接收方read的速度比recevie的速度慢，就会造成接收窗口的逐渐减小，因此发送方收到的advertisedWindowSize的大小也在减小，当advertisedWindowSize减小到0，说明接受方不能收取任何数据，意味着TCP将发送进程阻塞。</p>
 </li>
 </ul>
 </li>
-<li><p>拥塞控制</p>
+<li>
+<p>拥塞控制</p>
 <ul>
-<li><p>拥塞标志：TCP协议认为超时是拥塞的标志</p>
+<li>
+<p>拥塞标志：TCP协议认为超时是拥塞的标志</p>
 </li>
-<li><p>慢启动和快速恢复</p>
+<li>
+<p>慢启动和快速恢复</p>
 <ul>
 <li>慢启动：是在网络发生拥塞时，将慢启动阈值置为当前拥塞窗口的一半，拥塞窗口置为1，采用乘性增加性减的方式进行快速启动的方式</li>
 <li>快重传：丢包并不意味这拥塞发生，丢包之后等待超时并慢启动这一过程会降低网络性能，如果在丢包之后可以立即解决而不用慢启动则可以避免网络性能的降低。发送方一旦收到三个连续的重复确认，就对相应的报文段立即重传，而不是等待该报文段的超时重传计时器超时再重传。</li>
 <li>快恢复：发生丢包之后，快速重传和快速恢复同时发生，快速恢复是指，将慢启动阈值置为当前拥塞窗口的一半，将拥塞窗口置为慢启动阈值+3，并使用加性增的手段。</li>
 </ul>
-<p><img src="C:\Users\11736\AppData\Roaming\Typora\typora-user-images\image-20200716153632698.png" alt="image-20200716153632698"></p>
+<p><img src="C:%5CUsers%5C11736%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200716153632698.png" alt="image-20200716153632698" /></p>
 </li>
 </ul>
 </li>
 </ul>
-<h5 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h5><ul>
+<h5 id="dns"><a class="markdownIt-Anchor" href="#dns"></a> DNS</h5>
+<ul>
 <li>在浏览器输入域名时，操作系统检查本地host是否具备网址映射关系，如果有则调用该IP地址映射，完成解析</li>
 <li>若本地host没有，则查找本地DNS解析器缓存，</li>
 <li>若以上两个都没有，则查找TCP/IP参数中设置的首选DNS服务器，称为本地DNS服务器。若所需查找的域名包含在本地配置资源中，则返回解析结果，此解析具有权威性。若不包含在本地资源配置中，只是在缓存中，则该解析结果不具有权威性</li>
-<li>若以上都失效<ul>
+<li>若以上都失效
+<ul>
 <li>若没用转发模式，则将请求发送到13台根DNS，若根DNS没有查到则转发到下一个根DNS，直到查到为止</li>
 <li>若使用了转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用的是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机</li>
 </ul>
 </li>
 </ul>
-<h5 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h5><ul>
+<h5 id="cgi"><a class="markdownIt-Anchor" href="#cgi"></a> CGI</h5>
+<ul>
 <li>CGI（Common Gateway Interface）公共网关接口，是外部扩展应用程序与 Web 服务器交互的一个标准接口</li>
 </ul>
-<h5 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h5><ul>
+<h5 id="arp"><a class="markdownIt-Anchor" href="#arp"></a> ARP</h5>
+<ul>
 <li>地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到局域网络上的所有主机，并接收返回消息，以此确定目标的物理地址</li>
 </ul>
-<h5 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h5><ul>
+<h5 id="icmp"><a class="markdownIt-Anchor" href="#icmp"></a> ICMP</h5>
+<ul>
 <li>ICMP（Internet Control Message Protocol）Internet控制报文协议。它是TCP/IP协议簇的一个子协议，用于在IP主机、路由器之间传递控制消息。控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息。这些控制消息虽然并不传输用户数据，但是对于用户数据的传递起着重要的作用。</li>
 </ul>
-<h5 id="IGMP"><a href="#IGMP" class="headerlink" title="IGMP"></a>IGMP</h5><ul>
+<h5 id="igmp"><a class="markdownIt-Anchor" href="#igmp"></a> IGMP</h5>
+<ul>
 <li>TCP/IP协议族的一个子协议，用于IP主机向任一个直接相邻的路由器报告他们的组成员情况。允许Internet主机参加多播，也是IP主机用作向相邻多目路由器报告多目组成员的协议。多目路由器是支持组播的路由器，向本地网络发送IGMP查询。主机通过发送IGMP报告来应答查询。组播路由器负责将组播包转发到所有网络中组播成员。</li>
 </ul>
-<h5 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h5><ul>
+<h5 id="tcpip协议族"><a class="markdownIt-Anchor" href="#tcpip协议族"></a> TCP/IP协议族</h5>
+<ul>
 <li>IP</li>
 <li>ARP</li>
 <li>RARP</li>
 <li>IGMP</li>
 <li>ICMP</li>
 </ul>
-<h5 id="OSI网络模型"><a href="#OSI网络模型" class="headerlink" title="OSI网络模型"></a>OSI网络模型</h5><ul>
-<li><p>MAC层与物理层</p>
+<h5 id="osi网络模型"><a class="markdownIt-Anchor" href="#osi网络模型"></a> OSI网络模型</h5>
+<ul>
+<li>
+<p>MAC层与物理层</p>
 <ul>
 <li>物理层为数据链路层提供比特流传输服务</li>
 <li>数据链路层传输数据帧</li>
 </ul>
 </li>
-<li><p>应用层协议：</p>
+<li>
+<p>应用层协议：</p>
 <ul>
 <li>HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP</li>
 </ul>
 </li>
-<li><p>表示层，会话层</p>
+<li>
+<p>表示层，会话层</p>
 </li>
-<li><p>传输层：TCP，UDP</p>
+<li>
+<p>传输层：TCP，UDP</p>
 </li>
-<li><p>网络层：ICMP，IGMP</p>
+<li>
+<p>网络层：ICMP，IGMP</p>
 </li>
 </ul>
-<h5 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h5><ul>
+<h5 id="编码"><a class="markdownIt-Anchor" href="#编码"></a> 编码</h5>
+<ul>
 <li>NRZ（不归零），1-&gt;高信号，0-&gt;低信号</li>
 <li>NRZI（不归零反转），1-&gt;信号跳变，0-&gt;信号保持</li>
 <li>Manchester，1-&gt;高到低跳变,0-&gt;低到高跳变</li>
 </ul>
-<h5 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h5><ul>
+<h5 id="可靠传输"><a class="markdownIt-Anchor" href="#可靠传输"></a> 可靠传输</h5>
+<ul>
 <li>循环冗余校验（CRC）</li>
 <li>停止等待协议</li>
 <li>连续ARQ</li>
 <li>滑动窗口协议</li>
 </ul>
-<h5 id="p2p与e2e"><a href="#p2p与e2e" class="headerlink" title="p2p与e2e"></a>p2p与e2e</h5><ul>
-<li>端到端与点到点是针对网络中传输的两端设备间的关系而言的。<ul>
+<h5 id="p2p与e2e"><a class="markdownIt-Anchor" href="#p2p与e2e"></a> p2p与e2e</h5>
+<ul>
+<li>端到端与点到点是针对网络中传输的两端设备间的关系而言的。
+<ul>
 <li>端到端传输指的是在数据传输前，经过各种各样的交换设备，在两端设备问建立一条链路，就僚它们是直接相连的一样，链路建立后，发送端就可以发送数据，直至数据发送完毕，接收端确认接收成功。</li>
 <li>点到点系统指的是发送端把数据传给与它直接相连的设备，这台设备在合适的时候又把数据传给与之直接相连的下一台设备，通过一台一台直接相连的设备，把数据传到接收端。</li>
 </ul>
 </li>
 </ul>
-<h5 id="MAC层调度算法"><a href="#MAC层调度算法" class="headerlink" title="MAC层调度算法"></a>MAC层调度算法</h5><ul>
-<li><p>ZFS调度算法</p>
+<h5 id="mac层调度算法"><a class="markdownIt-Anchor" href="#mac层调度算法"></a> MAC层调度算法</h5>
 <ul>
-<li><p>ZFS的中心思想是每次增加一个使得总容量最大的用户，直至用户总容量下降或者选满M个用户</p>
-</li>
-<li><p>注释：U，全体用户集合。$h_u$是用户u的信道增益，$s_i$是第i步选中的用户。$S_i$是第i步迭代以后选择的用户集合，i是已选择用户总数，假设基站的总数为M，总用户数为K（K&gt;M）</p>
-</li>
-<li><p>算法流程：</p>
+<li>
+<p>ZFS调度算法</p>
 <ul>
-<li><p>1，初始化<br>$$<br>i= 1 \<br>s_1 = \underset {x \in U}{arg,max,h_uh_u^H}\<br>S_1 = {s_1}<br>$$<br>定义基站和集合$S_1$的用户使用ZFBF编码进行MU-MIMO传输的总容量为$R_{zf}(S_1)_{max}$。</p>
-<p>2，当i&lt;M时新增一个用户<br>$$<br>i \longleftarrow i+1 \<br>s_i = \underset{u\in U/ S_{i-1}}{arg , max R_{zf}(S_{i-1}\bigcup {u})}<br>$$<br>​    令$S_i = S_{i-1} \bigcup {s_i}$，集合$S_i$的总容量为$R_{zf}(S_i)_{max}$。如果$R_{zf}(S_i)_{max} &gt; R_{zf}(S_{i-1})<em>{max}$，则继续步骤2新增用户，如果$R</em>{zf}(S_i)<em>{max} \leq R</em>{zf}(S_{i-1})_{max}$则$i \longleftarrow i-1$，进入步骤3用户选择结束阶段。</p>
+<li>
+<p>ZFS的中心思想是每次增加一个使得总容量最大的用户，直至用户总容量下降或者选满M个用户</p>
+</li>
+<li>
+<p>注释：U，全体用户集合。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">h_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">h</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">u</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>是用户u的信道增益，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>是第i步选中的用户。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">S_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>是第i步迭代以后选择的用户集合，i是已选择用户总数，假设基站的总数为M，总用户数为K（K&gt;M）</p>
+</li>
+<li>
+<p>算法流程：</p>
+<ul>
+<li>
+<p>1，初始化</p>
+i= 1 \\
+s_1 = \underset {x \in U}{arg\,max\,h_uh_u^H}\\
+S_1 = \{s_1\}
+
+<p>定义基站和集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">S_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的用户使用ZFBF编码进行MU-MIMO传输的总容量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mrow><mi>z</mi><mi>f</mi></mrow></msub><mo>(</mo><msub><mi>S</mi><mn>1</mn></msub><msub><mo>)</mo><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{zf}(S_1)_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</p>
+<p>2，当i&lt;M时新增一个用户</p>
+i \longleftarrow i+1 \\
+s_i = \underset{u\in U/ S_{i-1}}{arg \, max R_{zf}(S_{i-1}\bigcup \{u\})}
+
+<p>​	令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub><mo>=</mo><msub><mi>S</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>⋃</mo><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">S_i = S_{i-1} \bigcup {s_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">⋃</span><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span>，集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">S_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的总容量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mrow><mi>z</mi><mi>f</mi></mrow></msub><mo>(</mo><msub><mi>S</mi><mi>i</mi></msub><msub><mo>)</mo><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{zf}(S_i)_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mrow><mi>z</mi><mi>f</mi></mrow></msub><mo>(</mo><msub><mi>S</mi><mi>i</mi></msub><msub><mo>)</mo><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>&gt;</mo><msub><mi>R</mi><mrow><mi>z</mi><mi>f</mi></mrow></msub><mo>(</mo><msub><mi>S</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><msub><mo>)</mo><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{zf}(S_i)_{max} &gt; R_{zf}(S_{i-1})_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，则继续步骤2新增用户，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mrow><mi>z</mi><mi>f</mi></mrow></msub><mo>(</mo><msub><mi>S</mi><mi>i</mi></msub><msub><mo>)</mo><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>≤</mo><msub><mi>R</mi><mrow><mi>z</mi><mi>f</mi></mrow></msub><mo>(</mo><msub><mi>S</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><msub><mo>)</mo><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{zf}(S_i)_{max} \leq R_{zf}(S_{i-1})_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>⟵</mo><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i \longleftarrow i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mrel">⟵</span><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span>，进入步骤3用户选择结束阶段。</p>
 <p>3，用户选择结束阶段</p>
-<p>4，计算ZFBF预编码矩阵和功率分配<br>$$<br>W = H_{S_i}^{H}({H_{S_i}H_{S_i}^H})^{-1}<br>$$</p>
+<p>4，计算ZFBF预编码矩阵和功率分配</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mo>=</mo><msubsup><mi>H</mi><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><mrow><mi>H</mi></mrow></msubsup><mo>(</mo><mrow><msub><mi>H</mi><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow></msub><msubsup><mi>H</mi><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><mi>H</mi></msubsup></mrow><msup><mo>)</mo><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">W = H_{S_i}^{H}({H_{S_i}H_{S_i}^H})^{-1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8913309999999999em;"></span><span class="strut bottom" style="height:1.243331em;vertical-align:-0.352em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.247em;margin-left:-0.08125em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.08125em;">H</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.247em;margin-left:-0.08125em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.08125em;">H</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.41300000000000003em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>SUS</p>
+<li>
+<p>SUS</p>
 <ul>
-<li><p>SUS算法是基于信道垂直偏量的F范数的低复杂度用户选择呢算法。</p>
+<li>
+<p>SUS算法是基于信道垂直偏量的F范数的低复杂度用户选择呢算法。</p>
 </li>
-<li><p>定义：$S_0$为SUS算法选择的用户集合，$\mathbf{g}_k$，是用户k的信道增益$\mathbf{h}_k$在已选用户集合的信道空间的垂直补空间上的投影,$\pi(i)$是第i轮递推中选中的用户。$T(i)$是第$i$轮地推中的备选用户集合，假设基站天线数为M，用户总数为K，(K&gt;M)，SUS算法流程如下</p>
+<li>
+<p>定义：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">S_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>为SUS算法选择的用户集合，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mrow><mi mathvariant="bold">g</mi></mrow><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf{g}_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.44444em;"></span><span class="strut bottom" style="height:0.6888799999999999em;vertical-align:-0.24444em;"></span><span class="base textstyle uncramped"><span class=""><span class="mord textstyle uncramped"><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，是用户k的信道增益<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mrow><mi mathvariant="bold">h</mi></mrow><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf{h}_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class=""><span class="mord textstyle uncramped"><span class="mord mathbf">h</span></span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>在已选用户集合的信道空间的垂直补空间上的投影,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\pi(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span></span></span></span>是第i轮递推中选中的用户。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">T(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span></span></span></span>是第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>轮地推中的备选用户集合，假设基站天线数为M，用户总数为K，(K&gt;M)，SUS算法流程如下</p>
 <ul>
-<li><p>步骤1，初始化<br>$$<br>i = 1 \<br>T_1 = {1,2,…,K}\<br>S_0 = \emptyset<br>$$</p>
-</li>
-<li><p>步骤2，对备选用户集合$T_i$中的每个用户k计算$\mathbf g_k$，即$\mathbf h_k$垂直于子空间$span{\mathbf g_{(1)},\mathbf g_{(2)},…,\mathbf g_{(i-1)}, }$。<br>$$<br>\mathbf g_k = \mathbf h_k - \sum_{j = 1}^{i-1} \frac{\mathbf h_k \mathbf g_{(j)}^H}{||\mathbf g_{(j)}||^2}\mathbf g_{(j)}\<br> = \mathbf h_k (1- \sum_{j = 1}^{i-1} \frac{ \mathbf g_{(j)}^H}{||\mathbf g_{(j)}||^2}\mathbf g_{(j)})<br>$$</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>  备注：当i = 1时，以上公式为$\mathbf g_k = \mathbf h_k$。
+<li>
+<p>步骤1，初始化</p>
+i = 1 \\
+T_1 = {1,2,...,K}\\
+S_0 = \emptyset
 
-* 步骤3，选中第i个用户
-  $$
-  \pi (i) = \underset&#123;k\in T_&#123;i&#125;&#125;&#123;arg\,max ||\mathbf g_k||&#125; \\
-  S_0 \longleftarrow S_0 \bigcup \&#123;\pi (i) \&#125; \\
-  \mathbf h_&#123;(i)&#125; = \mathbf h_&#123;\pi(i)&#125; \\
-  \mathbf g_&#123;(i)&#125; = \mathbf g_&#123;\pi(i)&#125;
-  $$
+</li>
+<li>
+<p>步骤2，对备选用户集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">T_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>中的每个用户k计算<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="bold">g</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf g_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.44444em;"></span><span class="strut bottom" style="height:0.6888799999999999em;vertical-align:-0.24444em;"></span><span class="base textstyle uncramped"><span class=""><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;margin-left:-0.01597em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="bold">h</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf h_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class=""><span class="mord mathbf">h</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>垂直于子空间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>a</mi><mi>n</mi><mo>{</mo><msub><mi mathvariant="bold">g</mi><mrow><mo>(</mo><mn>1</mn><mo>)</mo></mrow></msub><mo separator="true">,</mo><msub><mi mathvariant="bold">g</mi><mrow><mo>(</mo><mn>2</mn><mo>)</mo></mrow></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi mathvariant="bold">g</mi><mrow><mo>(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow></msub><mo separator="true">,</mo><mo>}</mo></mrow><annotation encoding="application/x-tex">span\{\mathbf g_{(1)},\mathbf g_{(2)},...,\mathbf g_{(i-1)}, \}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.16944em;vertical-align:-0.41944em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">p</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mopen">{</span><span class=""><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;margin-left:-0.01597em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class=""><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;margin-left:-0.01597em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mpunct">,</span><span class=""><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;margin-left:-0.01597em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mclose">}</span></span></span></span>。</p>
+\mathbf g_k = \mathbf h_k - \sum_{j = 1}^{i-1} \frac{\mathbf h_k \mathbf g_{(j)}^H}{||\mathbf g_{(j)}||^2}\mathbf g_{(j)}\\
+ = \mathbf h_k (1- \sum_{j = 1}^{i-1} \frac{ \mathbf g_{(j)}^H}{||\mathbf g_{(j)}||^2}\mathbf g_{(j)})
 
-* 步骤4，如果$S_0 &lt;M$，选择与$\mathbf g_&#123;(i)&#125;$准正交的用户作为下一轮迭代的备选用户
-  $$
-  T_&#123;i+1&#125; = \&#123; k \in T_i \, ,k\ne \pi (i) | \frac&#123;\mathbf h_k\mathbf g_&#123;(i)&#125;^H&#125;&#123;||\mathbf h_k||\, ||\mathbf g_&#123;(i)&#125;||&#125;&lt;\alpha \&#125; \\
-  i \longleftarrow i+1
-  $$
-  $\alpha$是一个收信道强度，信道相关性，基站天线数M，总用户数K以及总发送功率等多方面因素影响的值。如果$T_&#123;i+1&#125;$非空，而且已选用户集合的势满足$S_0&lt;M$则进入步骤2；否则选择过程结束，输出$S_0$ 为选择服务的用户集合</code></pre>
+<p>备注：当i = 1时，以上公式为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="bold">g</mi><mi>k</mi></msub><mo>=</mo><msub><mi mathvariant="bold">h</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf g_k = \mathbf h_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.9388799999999999em;vertical-align:-0.24444em;"></span><span class="base textstyle uncramped"><span class=""><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;margin-left:-0.01597em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class=""><span class="mord mathbf">h</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</p>
+</li>
+<li>
+<p>步骤3，选中第i个用户</p>
+\pi (i) = \underset{k\in T_{i}}{arg\,max ||\mathbf g_k||} \\
+S_0 \longleftarrow S_0 \bigcup \{\pi (i) \} \\
+\mathbf h_{(i)} = \mathbf h_{\pi(i)} \\
+\mathbf g_{(i)} = \mathbf g_{\pi(i)}
+
+</li>
+<li>
+<p>步骤4，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>&lt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">S_0 &lt;M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>，选择与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="bold">g</mi><mrow><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">\mathbf g_{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.44444em;"></span><span class="strut bottom" style="height:0.86388em;vertical-align:-0.41944em;"></span><span class="base textstyle uncramped"><span class=""><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;margin-left:-0.01597em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>准正交的用户作为下一轮迭代的备选用户</p>
+T_{i+1} = \{ k \in T_i \, ,k\ne \pi (i) | \frac{\mathbf h_k\mathbf g_{(i)}^H}{||\mathbf h_k||\, ||\mathbf g_{(i)}||}<\alpha \} \\
+i \longleftarrow i+1
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">α</span></span></span></span>是一个收信道强度，信道相关性，基站天线数M，总用户数K以及总发送功率等多方面因素影响的值。如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">T_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>非空，而且已选用户集合的势满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>&lt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">S_0&lt;M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>则进入步骤2；否则选择过程结束，输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">S_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 为选择服务的用户集合</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" data-id="ckgrvn69o00087sfi2fl8btzs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" data-id="ckgrw71u90008ykfi96hy7kf6" class="article-share-link">Share</a>
       
       
     </footer>

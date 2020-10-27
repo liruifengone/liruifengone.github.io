@@ -7,12 +7,12 @@
   
   <title>DSP_广义线性相位系统 | LRF的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="FIR广义线性相位系统 广义线性相位，对于某个系统$H(e^{j\omega})$，若其可以写成以下形式：$$H(e^{j\omega}) &#x3D; |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}$$则称该系统为广义线性相位的，特别的，若$\beta$为0，则称为线性相位。  通常所说的因果广义线性系统主要是FIR（Finite Impulse R">
+  <meta name="description" content="FIR广义线性相位系统   广义线性相位，对于某个系统H(ejω)H(e^{j\omega})H(e​jω​​)，若其可以写成以下形式： H(e^{j\omega}) &#x3D; |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}  则称该系统为广义线性相位的，特别的，若β\betaβ为0，则称为线性相位。   通常所说的因果广义线性系统主要是FIR（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DSP_广义线性相位系统">
 <meta property="og:url" content="http://yoursite.com/2020/10/27/DSP-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="LRF的博客">
-<meta property="og:description" content="FIR广义线性相位系统 广义线性相位，对于某个系统$H(e^{j\omega})$，若其可以写成以下形式：$$H(e^{j\omega}) &#x3D; |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}$$则称该系统为广义线性相位的，特别的，若$\beta$为0，则称为线性相位。  通常所说的因果广义线性系统主要是FIR（Finite Impulse R">
+<meta property="og:description" content="FIR广义线性相位系统   广义线性相位，对于某个系统H(ejω)H(e^{j\omega})H(e​jω​​)，若其可以写成以下形式： H(e^{j\omega}) &#x3D; |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}  则称该系统为广义线性相位的，特别的，若β\betaβ为0，则称为线性相位。   通常所说的因果广义线性系统主要是FIR（">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-27T11:17:33.000Z">
 <meta property="article:modified_time" content="2020-10-27T11:18:04.322Z">
@@ -27,6 +27,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -88,34 +89,81 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="FIR广义线性相位系统"><a href="#FIR广义线性相位系统" class="headerlink" title="FIR广义线性相位系统"></a>FIR广义线性相位系统</h3><ul>
-<li><p>广义线性相位，对于某个系统$H(e^{j\omega})$，若其可以写成以下形式：<br>$$<br>H(e^{j\omega}) = |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}<br>$$<br>则称该系统为广义线性相位的，特别的，若$\beta$为0，则称为线性相位。</p>
-</li>
-<li><p>通常所说的因果广义线性系统主要是FIR（Finite Impulse Response，有限冲击响应）系统。一共包含四种类型。其主要特点是对称性。</p>
-</li>
-<li><p>符合$h[n] = h[M-n],0\leq n\leq M$的FIR广义线性相位系统</p>
+        <h3 id="fir广义线性相位系统"><a class="markdownIt-Anchor" href="#fir广义线性相位系统"></a> FIR广义线性相位系统</h3>
 <ul>
-<li><p>I类，此时M为偶整数，则延迟M/2也是整数，但单位冲击响应$h[n]$一共有M+1项,其频率响应为：<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{M/2-1}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})+h[M/2]e^{-j\omega M/2}  \<br>  =e^{-j\omega M/2}(\sum^{M/2-1}_{n=0}2h[n]cos\omega(n-M/2)  +  h[M/2]) \tag{2}<br>$$<br>由上式可得，频率响应函数中除去$e^{-j\omega M/2}$以外都是实数，所以可以表示为公式1所示，其中$\alpha = M/2, \beta = 0$。</p>
+<li>
+<p>广义线性相位，对于某个系统<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>(</mo><msup><mi>e</mi><mrow><mi>j</mi><mi>ω</mi></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">H(e^{j\omega})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.824664em;"></span><span class="strut bottom" style="height:1.0746639999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mord mathit" style="margin-right:0.03588em;">ω</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，若其可以写成以下形式：</p>
+H(e^{j\omega}) = |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}
+
+<p>则称该系统为广义线性相位的，特别的，若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span>为0，则称为线性相位。</p>
 </li>
-<li><p>II类，二类与第一类类似，只是其中M变为奇整数，一共有M+1偶数项故而有以下公式：<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{(M-1)/2}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})  \<br>  =e^{-j\omega M/2}(\sum^{M/2-1}_{n=0}2h[n]cos\omega (n-M/2)) \tag{3}<br>$$</p>
+<li>
+<p>通常所说的因果广义线性系统主要是FIR（Finite Impulse Response，有限冲击响应）系统。一共包含四种类型。其主要特点是对称性。</p>
+</li>
+<li>
+<p>符合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>=</mo><mi>h</mi><mo>[</mo><mi>M</mi><mo>−</mo><mi>n</mi><mo>]</mo><mo separator="true">,</mo><mn>0</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">h[n] = h[M-n],0\leq n\leq M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span><span class="mrel">=</span><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mbin">−</span><span class="mord mathit">n</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>的FIR广义线性相位系统</p>
+<ul>
+<li>
+<p>I类，此时M为偶整数，则延迟M/2也是整数，但单位冲击响应<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>[</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">h[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span></span></span></span>一共有M+1项,其频率响应为：</p>
+H(e^{j\omega}) = \sum^{M}_{n=0}h[n]e^{-j\omega n} \\
+  = \sum^{M/2-1}_{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})+h[M/2]e^{-j\omega M/2}  \\
+  =e^{-j\omega M/2}(\sum^{M/2-1}_{n=0}2h[n]cos\omega(n-M/2)  +  h[M/2]) \tag{2}
+
+<p>由上式可得，频率响应函数中除去<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>e</mi><mrow><mo>−</mo><mi>j</mi><mi>ω</mi><mi>M</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">e^{-j\omega M/2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mord mathit" style="margin-right:0.03588em;">ω</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>以外都是实数，所以可以表示为公式1所示，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo>=</mo><mi>M</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo separator="true">,</mo><mi>β</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha = M/2, \beta = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">α</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>。</p>
+</li>
+<li>
+<p>II类，二类与第一类类似，只是其中M变为奇整数，一共有M+1偶数项故而有以下公式：</p>
+H(e^{j\omega}) = \sum^{M}_{n=0}h[n]e^{-j\omega n} \\
+  = \sum^{(M-1)/2}_{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})  \\
+  =e^{-j\omega M/2}(\sum^{M/2-1}_{n=0}2h[n]cos\omega (n-M/2)) \tag{3}
+
 </li>
 </ul>
 </li>
-<li><p>符合$h[n] = -h[M-n],0\leq n\leq M$的FIR广义线性相位系统。此时的特性与以上偶对称的序列的计算方法类似，由欧拉公式可知求和以后的序列角度超前$\pi/2$</p>
+<li>
+<p>符合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>=</mo><mo>−</mo><mi>h</mi><mo>[</mo><mi>M</mi><mo>−</mo><mi>n</mi><mo>]</mo><mo separator="true">,</mo><mn>0</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">h[n] = -h[M-n],0\leq n\leq M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span><span class="mrel">=</span><span class="mord">−</span><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mbin">−</span><span class="mord mathit">n</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>的FIR广义线性相位系统。此时的特性与以上偶对称的序列的计算方法类似，由欧拉公式可知求和以后的序列角度超前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\pi/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span></span></span></span></p>
 <ul>
-<li><p>III类，此时M为偶数，其频率响应为：<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{M/2-1}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})+h[M/2]e^{-j\omega M/2}  \<br>  =e^{-j\omega M/2}(j\sum^{M/2-1}<em>{n=0}2h[n]sin\omega(M/2-n)  +  h[M/2]) \<br>  =e^{-j\omega M/2+\pi/2}(j\sum^{M/2-1}</em>{n=0}2h[n]sin\omega(M/2-n)  +  h[M/2])<br>  \tag{4}<br>$$<br>注意，在求和符号前多了一个虚数单位$j$，所以此时的$\alpha = M/2 ,\beta = \pi/2$，</p>
+<li>
+<p>III类，此时M为偶数，其频率响应为：</p>
+H(e^{j\omega}) = \sum^{M}_{n=0}h[n]e^{-j\omega n} \\
+  = \sum^{M/2-1}_{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})+h[M/2]e^{-j\omega M/2}  \\
+  =e^{-j\omega M/2}(j\sum^{M/2-1}_{n=0}2h[n]sin\omega(M/2-n)  +  h[M/2]) \\
+  =e^{-j\omega M/2+\pi/2}(j\sum^{M/2-1}_{n=0}2h[n]sin\omega(M/2-n)  +  h[M/2])
+  \tag{4}
+
+<p>注意，在求和符号前多了一个虚数单位<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>，所以此时的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo>=</mo><mi>M</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo separator="true">,</mo><mi>β</mi><mo>=</mo><mi>π</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\alpha = M/2 ,\beta = \pi/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">α</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span></span></span></span>，</p>
 </li>
-<li><p>IV类，此时M为奇数<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{(M-1)/2}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})  \<br>  =e^{-j\omega M/2+\pi/2}(\sum^{M/2-1}_{n=0}2h[n]sin\omega (M/2-n)) \tag 5<br>$$<br>此时的$\alpha = M/2,\beta = \pi/2$。</p>
+<li>
+<p>IV类，此时M为奇数</p>
+H(e^{j\omega}) = \sum^{M}_{n=0}h[n]e^{-j\omega n} \\
+  = \sum^{(M-1)/2}_{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})  \\
+  =e^{-j\omega M/2+\pi/2}(\sum^{M/2-1}_{n=0}2h[n]sin\omega (M/2-n)) \tag 5
+
+<p>此时的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mo>=</mo><mi>M</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo separator="true">,</mo><mi>β</mi><mo>=</mo><mi>π</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\alpha = M/2,\beta = \pi/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">α</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span></span></span></span>。</p>
 </li>
 </ul>
 </li>
-<li><p>注：以上四种FIR线性相位系统的$\beta$的值都可以加上或减去$\pi$，原模反号即可。</p>
+<li>
+<p>注：以上四种FIR线性相位系统的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span>的值都可以加上或减去<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span>，原模反号即可。</p>
 </li>
-<li><p>另附：</p>
+<li>
+<p>另附：</p>
 <ul>
-<li><p>因果性：从差分方程的角度考虑，没有出现诸如$x[n+k]，y[n+k]，k&gt;0$的差分方程所代表的系统就是因果的，这说明每一时刻的输出只取决于当前与之前的输入与输出。在Z域，我们可以知道因果系统就是收敛于包含无穷的系统是因果的。对待系统函数的单位冲击响应的时候，我们可以知道当$n&lt;0$时$h[n]$为0的系统是因果系统，这三者肯定都是一个意思，但这三者之间有什么联系呢？</p>
-<p>首先我们来看单位冲击响应$h[n]$与Z域的联系，这是其中最简单的。我们知道，根据单位冲激响应求其Z域只需要进行Z变换即可，如下所示：<br>$$<br>H(z) = \sum_{n=-\infty}^{+\infty}h[n]z^{-n} \tag{6}<br>$$<br>当n&gt;0时，$z^{-n}$在正无穷的取值都是0，所以此时的级数是收敛的，当n&lt;0时，$z^{-n}$在无穷的取值就是无穷了，此时级数发散，自然就构不成因果了。所以因果序列要求$h[n]$在n&lt;0的时候取值为0。</p>
-<p>对于差分方程我们举出以下例子<br>$$<br>y_1[n] = x[n]+x[n-1]+x[n-2] \tag{7} \<br>y_2[n] = x[n+1]+x[n]+x[n-1]<br>$$<br>其系统函数的Z变换为<br>$$<br>H_1(z) = \frac{Y_1(z)}{X(z)} = 1+z^{-1}+z^{-2} \<br>H_1(z) = \frac{Y_1(z)}{X(z)} = z+1+z^{-1} \ \tag{8}<br>$$<br>同理，此时的$H_2(z)$系统函数出现了z的正数次幂，其收敛域也不能包含正无穷。另外的直接证明就可以了。</p>
+<li>
+<p>因果性：从差分方程的角度考虑，没有出现诸如x[n+k]，y[n+k]，k>0的差分方程所代表的系统就是因果的，这说明每一时刻的输出只取决于当前与之前的输入与输出。在Z域，我们可以知道因果系统就是收敛于包含无穷的系统是因果的。对待系统函数的单位冲击响应的时候，我们可以知道当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n&lt;0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">&lt;</span><span class="mord mathrm">0</span></span></span></span>时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>[</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">h[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span></span></span></span>为0的系统是因果系统，这三者肯定都是一个意思，但这三者之间有什么联系呢？</p>
+<p>首先我们来看单位冲击响应<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>[</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">h[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span></span></span></span>与Z域的联系，这是其中最简单的。我们知道，根据单位冲激响应求其Z域只需要进行Z变换即可，如下所示：</p>
+H(z) = \sum_{n=-\infty}^{+\infty}h[n]z^{-n} \tag{6}
+
+<p>当n&gt;0时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>z</mi><mrow><mo>−</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">z^{-n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.771331em;"></span><span class="strut bottom" style="height:0.771331em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>在正无穷的取值都是0，所以此时的级数是收敛的，当n&lt;0时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>z</mi><mrow><mo>−</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">z^{-n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.771331em;"></span><span class="strut bottom" style="height:0.771331em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>在无穷的取值就是无穷了，此时级数发散，自然就构不成因果了。所以因果序列要求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>[</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">h[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span></span></span></span>在n&lt;0的时候取值为0。</p>
+<p>对于差分方程我们举出以下例子</p>
+y_1[n] = x[n]+x[n-1]+x[n-2] \tag{7} \\
+y_2[n] = x[n+1]+x[n]+x[n-1]
+
+<p>其系统函数的Z变换为</p>
+H_1(z) = \frac{Y_1(z)}{X(z)} = 1+z^{-1}+z^{-2} \\
+H_1(z) = \frac{Y_1(z)}{X(z)} = z+1+z^{-1} \\ \tag{8}
+
+<p>同理，此时的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mn>2</mn></msub><mo>(</mo><mi>z</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">H_2(z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>系统函数出现了z的正数次幂，其收敛域也不能包含正无穷。另外的直接证明就可以了。</p>
 </li>
 </ul>
 </li>
@@ -124,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/27/DSP-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/" data-id="ckgrvn69b00007sfibh0i43fx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/27/DSP-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/" data-id="ckgrw71ta0000ykfi6rny3hva" class="article-share-link">Share</a>
       
       
     </footer>

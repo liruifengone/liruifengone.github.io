@@ -7,12 +7,12 @@
   
   <title>gcc指令参数集 | LRF的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="-x：设定文件所使用的语言，如 1gcc -x c hello.pig  -c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件 1gcc -c hello.c  -S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看 1gcc -S hello.c  -E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面 12gcc -E hel">
+  <meta name="description" content="-x：设定文件所使用的语言，如 1gcc -x c hello.pig -c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件 1gcc -c hello.c -S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看 1gcc -S hello.c -E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面 12gcc -E hello.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gcc指令参数集">
 <meta property="og:url" content="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="LRF的博客">
-<meta property="og:description" content="-x：设定文件所使用的语言，如 1gcc -x c hello.pig  -c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件 1gcc -c hello.c  -S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看 1gcc -S hello.c  -E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面 12gcc -E hel">
+<meta property="og:description" content="-x：设定文件所使用的语言，如 1gcc -x c hello.pig -c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件 1gcc -c hello.c -S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看 1gcc -S hello.c -E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面 12gcc -E hello.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-22T09:28:31.196Z">
 <meta property="article:modified_time" content="2020-08-22T09:18:58.000Z">
@@ -27,6 +27,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -90,44 +91,34 @@
       
         <p>-x：设定文件所使用的语言，如</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -x c hello.pig</span><br></pre></td></tr></table></figure>
-
 <p>-c：只激活预处理预编译和汇编，只把程序做成obj文件，即.o文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c hello.c</span><br></pre></td></tr></table></figure>
-
 <p>-S：只激活预处理和安逸，就是只把文件编译成为汇编代码，生成.s汇编代码，可以使用文本编辑器查看</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S hello.c</span><br></pre></td></tr></table></figure>
-
 <p>-E：只激活预处理，不生成文件，只需要把它重定向到一个输出文件里面</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c &gt; filename </span><br><span class="line">gcc -E hello.c | more</span><br></pre></td></tr></table></figure>
-
 <p>-o：指定可执行文件名称</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -o test</span><br></pre></td></tr></table></figure>
-
 <p>-i，-include：指定第一个寻找头文件的目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -I /usr/local/include/freetype</span><br></pre></td></tr></table></figure>
-
 <p>-l：指定程序要链接的库</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o example hello.c -lpthread -lm</span><br></pre></td></tr></table></figure>
-
 <p>-L：指定库文件所在的路径名称</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -I/home/zhengshuang/tensorflow_c/include -L/home/zhengshuang/tensorflow_c/lib -ltensorflow test.cpp -o test</span><br></pre></td></tr></table></figure>
-
 <p>-Werror：gcc会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Werror -o test test.c</span><br></pre></td></tr></table></figure>
-
 <p>-w：不生成任何警告信息</p>
 <p>-W：生成所有警告信息</p>
 <p>附录：</p>
-<p>__attribute__：设置函数属性，变量属性和类型属性</p>
+<p>_<em>attribute</em>_：设置函数属性，变量属性和类型属性</p>
 <p>字节对齐：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S1</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;__attribute__((aligned(<span class="number">8</span>)));</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S2</span>&#123;</span></span><br><span class="line">    <span class="keyword">short</span> b[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>注：以上注明了S1的字节对齐为8，则S1的大小为8字节,S2的大小为6字节。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" data-id="ckgrvn69j00037sfiefogfj8t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" data-id="ckgrw71tp0003ykfigrfud0ta" class="article-share-link">Share</a>
       
       
     </footer>
