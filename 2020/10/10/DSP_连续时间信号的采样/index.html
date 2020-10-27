@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="连续时间信号的采样 已知离散时间信号$x[n]$的傅里叶变换为：$$X(e^{j\omega}) &#x3D; \sum_{n &#x3D; -\infty}^{+\infty}x[n]e^{-j\omega n} \tag{1}$$  连续时间信号的傅里叶变换为：$$X(j\Omega) &#x3D; \int_{-\infty}^{+\infty}x(t)e^{-j\Omega t} \tag{2}$$  下面讲述如何通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="连续时间信号的采样 已知离散时间信号$x[n]$的傅里叶变换为：$$X(e^{j\omega}) &#x3D; \sum_{n &#x3D; -\infty}^{+\infty}x[n]e^{-j\omega n} \tag{1}$$  连续时间信号的傅里叶变换为：$$X(j\Omega) &#x3D; \int_{-\infty}^{+\infty}x(t)e^{-j\Omega t} \tag{2}$$  下面讲述如何通过">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-10T10:58:26.584Z">
+<meta property="article:modified_time" content="2020-10-10T11:53:44.668Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DSP_连续时间信号的采样" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/" class="article-date">
+  <time datetime="2020-10-10T10:58:26.584Z" itemprop="datePublished">2020-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="连续时间信号的采样"><a href="#连续时间信号的采样" class="headerlink" title="连续时间信号的采样"></a>连续时间信号的采样</h3><ul>
+<li><p>已知离散时间信号$x[n]$的傅里叶变换为：<br>$$<br>X(e^{j\omega}) = \sum_{n = -\infty}^{+\infty}x[n]e^{-j\omega n} \tag{1}<br>$$</p>
+</li>
+<li><p>连续时间信号的傅里叶变换为：<br>$$<br>X(j\Omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\Omega t} \tag{2}<br>$$</p>
+</li>
+<li><p>下面讲述如何通过采样得到采样信号的离散傅里叶变换</p>
+<ul>
+<li><p>首先时域采样，令<br>$$<br>x_s(t) = x_c(t) \sum_{n=-\infty}^{+\infty}\delta(t-nT)=\sum_{n=-\infty}^{+\infty}x_c(t) \delta(t-nT) \tag{3}<br>$$</p>
+</li>
+<li><p>此时$x_s(t)$就是我们的采样信号，可表示为：<br>$$<br>x_s(t) = \sum_{n=-\infty}^{+\infty}x_c(nT)\delta (t-nT) \tag{4}<br>$$</p>
+<ul>
+<li>注意：此时的采样信号还是连续时间信号</li>
+</ul>
+</li>
+<li><p>然后进行傅里叶变换：</p>
+<ul>
+<li>这里是A/D信号的傅里叶变换。此处$\Omega_s$是采样频率，此处的$\Omega_s$满足$\Omega_s =\frac {2\pi}{T}$。</li>
+</ul>
+<p>$$<br>S(j\Omega) = \frac{2\pi}{T}\sum_{k=-\infty}^{+\infty}\delta(\Omega-k \Omega_s) \tag{5}<br>$$</p>
+<ul>
+<li>根据时域相乘定理<br>$$<br>X_s(j\Omega) = \frac{1}{2\pi}X_c(j \Omega)*S(j\Omega) = \ \frac{1}{T}\sum_{k=-\infty}^{+\infty}X_c(j(\Omega-k\Omega_s)) \tag{6}<br>$$</li>
+</ul>
+</li>
+<li><p>由以上我们得到采样信号的傅里叶变换是一系列原始连续信号的傅里叶变换进行频移以后相加得到的。这个时候就涉及到了混叠。具体内容可以参见DSP教材，他的信号在教材上显示的是一堆三角形。中心的三角形就标识原始连续时间信号的傅里叶变换。</p>
+<p>设原时域信号的最大频率为$\Omega_N$，采样频率为$\Omega_s$，则有只有当$\Omega_s &gt; \Omega_N$的时候才能不产生混叠。即可以通过滤波器完整的将连续时间信号还原出来。</p>
+<p>此时在原点周期内，$\Omega$的取值范围如下所示<br>$$<br>当 -\Omega_s&lt;\Omega &lt;\Omega_s的时候 \<br>X_s(j\Omega) =<br>\begin{cases}<br>X_c(j\Omega),-\Omega_N&lt;\Omega&lt;\Omega_N \<br>0\qquad   ,others<br>\end{cases} \tag{7}<br>$$</p>
+</li>
+<li><p>由公式1可知，对于如下离散时间变量<br>$$<br>x[n] = x_c(nT)<br>$$<br>其傅里叶变换$X(e^{j\omega})$的周期是$2\pi$，而公式6中的$\Omega$的周期是$2\Omega_s$，所以我们要将其进行归一化处理，即$\omega = \frac{2\pi\Omega}{\Omega_s} = \Omega T$，得到以下关系式：<br>$$<br>X(e^{j\omega}) = \frac{1}{T}\sum^{\infty}_{k=-\infty}X_c[j(\frac{\omega}{T} - \frac{2\pi k}{T} )] = \sum_{n=-\infty}^{+\infty}x[n]e^{-j\omega n}<br>$$</p>
+</li>
+<li><p>以上。注释：$X(e^{j\omega})$写成这样的形式是为了突出其周期为$2\pi$，而在$X_s(j\Omega)$中其周期不是$2\pi$，故不能写成这样的形式。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/" data-id="ckgruva22000329fi1utj33d7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/11/DSP_FIR%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">gcc指令参数集</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/10/11/DSP_FIR%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/">gcc指令参数集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">语言学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

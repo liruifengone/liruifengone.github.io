@@ -64,6 +64,124 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-DSP_FIR广义线性相位系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/11/DSP_FIR%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time datetime="2020-10-11T11:20:42.367Z" itemprop="datePublished">2020-10-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="FIR广义线性相位系统"><a href="#FIR广义线性相位系统" class="headerlink" title="FIR广义线性相位系统"></a>FIR广义线性相位系统</h3><ul>
+<li><p>广义线性相位，对于某个系统$H(e^{j\omega})$，若其可以写成以下形式：<br>$$<br>H(e^{j\omega}) = |H(e^{j\omega})|e^{-j\omega \alpha + \beta} \tag{1}<br>$$<br>则称该系统为广义线性相位的，特别的，若$\beta$为0，则称为线性相位。</p>
+</li>
+<li><p>通常所说的因果广义线性系统主要是FIR（Finite Impulse Response，有限冲击响应）系统。一共包含四种类型。其主要特点是对称性。</p>
+</li>
+<li><p>符合$h[n] = h[M-n],0\leq n\leq M$的FIR广义线性相位系统</p>
+<ul>
+<li><p>I类，此时M为偶整数，则延迟M/2也是整数，但单位冲击响应$h[n]$一共有M+1项,其频率响应为：<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{M/2-1}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})+h[M/2]e^{-j\omega M/2}  \<br>  =e^{-j\omega M/2}(\sum^{M/2-1}_{n=0}2h[n]cos\omega(n-M/2)  +  h[M/2]) \tag{2}<br>$$<br>由上式可得，频率响应函数中除去$e^{-j\omega M/2}$以外都是实数，所以可以表示为公式1所示，其中$\alpha = M/2, \beta = 0$。</p>
+</li>
+<li><p>II类，二类与第一类类似，只是其中M变为奇整数，一共有M+1偶数项故而有以下公式：<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{(M-1)/2}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})  \<br>  =e^{-j\omega M/2}(\sum^{M/2-1}_{n=0}2h[n]cos\omega (n-M/2)) \tag{3}<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p>符合$h[n] = -h[M-n],0\leq n\leq M$的FIR广义线性相位系统。此时的特性与以上偶对称的序列的计算方法类似，由欧拉公式可知求和以后的序列角度超前$\pi/2$</p>
+<ul>
+<li><p>III类，此时M为偶数，其频率响应为：<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{M/2-1}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})+h[M/2]e^{-j\omega M/2}  \<br>  =e^{-j\omega M/2}(j\sum^{M/2-1}<em>{n=0}2h[n]sin\omega(M/2-n)  +  h[M/2]) \<br>  =e^{-j\omega M/2+\pi/2}(j\sum^{M/2-1}</em>{n=0}2h[n]sin\omega(M/2-n)  +  h[M/2])<br>  \tag{4}<br>$$<br>注意，在求和符号前多了一个虚数单位$j$，所以此时的$\alpha = M/2 ,\beta = \pi/2$，</p>
+</li>
+<li><p>IV类，此时M为奇数<br>$$<br>H(e^{j\omega}) = \sum^{M}<em>{n=0}h[n]e^{-j\omega n} \<br>  = \sum^{(M-1)/2}</em>{n=0}(h[n]e^{-j\omega n}+h[M-n]e^{-j\omega(M-n)})  \<br>  =e^{-j\omega M/2+\pi/2}(\sum^{M/2-1}_{n=0}2h[n]sin\omega (M/2-n)) \tag 5<br>$$<br>此时的$\alpha = M/2,\beta = \pi/2$。</p>
+</li>
+</ul>
+</li>
+<li><p>注：以上四种FIR线性相位系统的$\beta$的值都可以加上或减去$\pi$，原模反号即可。</p>
+</li>
+<li><p>另附：</p>
+<ul>
+<li><p>因果性：从差分方程的角度考虑，没有出现诸如$x[n+k]，y[n+k]，k&gt;0$的差分方程所代表的系统就是因果的，这说明每一时刻的输出只取决于当前与之前的输入与输出。在Z域，我们可以知道因果系统就是收敛于包含无穷的系统是因果的。对待系统函数的单位冲击响应的时候，我们可以知道当$n&lt;0$时$h[n]$为0的系统是因果系统，这三者肯定都是一个意思，但这三者之间有什么联系呢？</p>
+<p>首先我们来看单位冲击响应$h[n]$与Z域的联系，这是其中最简单的。我们知道，根据单位冲激响应求其Z域只需要进行Z变换即可，如下所示：<br>$$<br>H(z) = \sum_{n=-\infty}^{+\infty}h[n]z^{-n} \tag{6}<br>$$<br>当n&gt;0时，$z^{-n}$在正无穷的取值都是0，所以此时的级数是收敛的，当n&lt;0时，$z^{-n}$在无穷的取值就是无穷了，此时级数发散，自然就构不成因果了。所以因果序列要求$h[n]$在n&lt;0的时候取值为0。</p>
+<p>对于差分方程我们举出以下例子<br>$$<br>y_1[n] = x[n]+x[n-1]+x[n-2] \tag{7} \<br>y_2[n] = x[n+1]+x[n]+x[n-1]<br>$$<br>其系统函数的Z变换为<br>$$<br>H_1(z) = \frac{Y_1(z)}{X(z)} = 1+z^{-1}+z^{-2} \<br>H_1(z) = \frac{Y_1(z)}{X(z)} = z+1+z^{-1} \ \tag{8}<br>$$<br>同理，此时的$H_2(z)$系统函数出现了z的正数次幂，其收敛域也不能包含正无穷。另外的直接证明就可以了。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/10/11/DSP_FIR%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/" data-id="ckgruva1y000129fibkqdfsjb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-DSP_连续时间信号的采样" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/" class="article-date">
+  <time datetime="2020-10-10T10:58:26.584Z" itemprop="datePublished">2020-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="连续时间信号的采样"><a href="#连续时间信号的采样" class="headerlink" title="连续时间信号的采样"></a>连续时间信号的采样</h3><ul>
+<li><p>已知离散时间信号$x[n]$的傅里叶变换为：<br>$$<br>X(e^{j\omega}) = \sum_{n = -\infty}^{+\infty}x[n]e^{-j\omega n} \tag{1}<br>$$</p>
+</li>
+<li><p>连续时间信号的傅里叶变换为：<br>$$<br>X(j\Omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\Omega t} \tag{2}<br>$$</p>
+</li>
+<li><p>下面讲述如何通过采样得到采样信号的离散傅里叶变换</p>
+<ul>
+<li><p>首先时域采样，令<br>$$<br>x_s(t) = x_c(t) \sum_{n=-\infty}^{+\infty}\delta(t-nT)=\sum_{n=-\infty}^{+\infty}x_c(t) \delta(t-nT) \tag{3}<br>$$</p>
+</li>
+<li><p>此时$x_s(t)$就是我们的采样信号，可表示为：<br>$$<br>x_s(t) = \sum_{n=-\infty}^{+\infty}x_c(nT)\delta (t-nT) \tag{4}<br>$$</p>
+<ul>
+<li>注意：此时的采样信号还是连续时间信号</li>
+</ul>
+</li>
+<li><p>然后进行傅里叶变换：</p>
+<ul>
+<li>这里是A/D信号的傅里叶变换。此处$\Omega_s$是采样频率，此处的$\Omega_s$满足$\Omega_s =\frac {2\pi}{T}$。</li>
+</ul>
+<p>$$<br>S(j\Omega) = \frac{2\pi}{T}\sum_{k=-\infty}^{+\infty}\delta(\Omega-k \Omega_s) \tag{5}<br>$$</p>
+<ul>
+<li>根据时域相乘定理<br>$$<br>X_s(j\Omega) = \frac{1}{2\pi}X_c(j \Omega)*S(j\Omega) = \ \frac{1}{T}\sum_{k=-\infty}^{+\infty}X_c(j(\Omega-k\Omega_s)) \tag{6}<br>$$</li>
+</ul>
+</li>
+<li><p>由以上我们得到采样信号的傅里叶变换是一系列原始连续信号的傅里叶变换进行频移以后相加得到的。这个时候就涉及到了混叠。具体内容可以参见DSP教材，他的信号在教材上显示的是一堆三角形。中心的三角形就标识原始连续时间信号的傅里叶变换。</p>
+<p>设原时域信号的最大频率为$\Omega_N$，采样频率为$\Omega_s$，则有只有当$\Omega_s &gt; \Omega_N$的时候才能不产生混叠。即可以通过滤波器完整的将连续时间信号还原出来。</p>
+<p>此时在原点周期内，$\Omega$的取值范围如下所示<br>$$<br>当 -\Omega_s&lt;\Omega &lt;\Omega_s的时候 \<br>X_s(j\Omega) =<br>\begin{cases}<br>X_c(j\Omega),-\Omega_N&lt;\Omega&lt;\Omega_N \<br>0\qquad   ,others<br>\end{cases} \tag{7}<br>$$</p>
+</li>
+<li><p>由公式1可知，对于如下离散时间变量<br>$$<br>x[n] = x_c(nT)<br>$$<br>其傅里叶变换$X(e^{j\omega})$的周期是$2\pi$，而公式6中的$\Omega$的周期是$2\Omega_s$，所以我们要将其进行归一化处理，即$\omega = \frac{2\pi\Omega}{\Omega_s} = \Omega T$，得到以下关系式：<br>$$<br>X(e^{j\omega}) = \frac{1}{T}\sum^{\infty}_{k=-\infty}X_c[j(\frac{\omega}{T} - \frac{2\pi k}{T} )] = \sum_{n=-\infty}^{+\infty}x[n]e^{-j\omega n}<br>$$</p>
+</li>
+<li><p>以上。注释：$X(e^{j\omega})$写成这样的形式是为了突出其周期为$2\pi$，而在$X_s(j\Omega)$中其周期不是$2\pi$，故不能写成这样的形式。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/" data-id="ckgruva22000329fi1utj33d7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-gcc指令参数集合" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" class="article-date">
@@ -125,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" data-id="cke9havm800035zfic064hp5l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/" data-id="ckgruva2d000529fidcho6nns" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cke9havm500015zfi00nf7qtv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="ckgruva26000429fih33e8bm5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -367,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cke9havmc00065zfi4y4iceb5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="ckgruva2h000829figj6if7q1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -636,6 +754,9 @@
 <h5 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h5><ul>
 <li>ICMP（Internet Control Message Protocol）Internet控制报文协议。它是TCP/IP协议簇的一个子协议，用于在IP主机、路由器之间传递控制消息。控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息。这些控制消息虽然并不传输用户数据，但是对于用户数据的传递起着重要的作用。</li>
 </ul>
+<h5 id="IGMP"><a href="#IGMP" class="headerlink" title="IGMP"></a>IGMP</h5><ul>
+<li>TCP/IP协议族的一个子协议，用于IP主机向任一个直接相邻的路由器报告他们的组成员情况。允许Internet主机参加多播，也是IP主机用作向相邻多目路由器报告多目组成员的协议。多目路由器是支持组播的路由器，向本地网络发送IGMP查询。主机通过发送IGMP报告来应答查询。组播路由器负责将组播包转发到所有网络中组播成员。</li>
+</ul>
 <h5 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h5><ul>
 <li>IP</li>
 <li>ARP</li>
@@ -733,7 +854,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" data-id="cke9havmk00085zfia05e3npr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" data-id="ckgruva2n000a29fial33h921" class="article-share-link">Share</a>
       
       
     </footer>
@@ -904,11 +1025,13 @@
 
 <h2 id="17，归并排序链表"><a href="#17，归并排序链表" class="headerlink" title="17，归并排序链表"></a>17，归并排序链表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> * <span class="title">next</span>;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">    ListNode* pre = head, *slow = head, *fast = head;</span><br><span class="line">    <span class="keyword">while</span>(fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">        pre = slow;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        fast = fast-&gt;next-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    pre-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">return</span> mergeTwoList(sortList(head), sortList(slow));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">mergeTwoList</span><span class="params">(ListNode* h1, ListNode* h2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!h1) <span class="keyword">return</span> h2;</span><br><span class="line">    <span class="keyword">if</span>(!h2) <span class="keyword">return</span> h1;</span><br><span class="line">    <span class="keyword">if</span>(h1-&gt;val &lt; h2-&gt;val) &#123;</span><br><span class="line">        h1-&gt;next = mergeTwoList(h1-&gt;next, h2);</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        h2-&gt;next = mergeTwoList(h1, h2-&gt;next);</span><br><span class="line">        <span class="keyword">return</span> h2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h2 id="18，AC自动机"><a href="#18，AC自动机" class="headerlink" title="18，AC自动机"></a>18，AC自动机</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn =  <span class="number">2</span>*<span class="number">1e6</span>+<span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> trie[maxn][<span class="number">26</span>]; <span class="comment">//字典树</span></span><br><span class="line"><span class="keyword">int</span> cntword[maxn];  <span class="comment">//记录该单词出现次数</span></span><br><span class="line"><span class="keyword">int</span> fail[maxn];     <span class="comment">//失败时的回溯指针</span></span><br><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertWords</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> next = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[root][next])</span><br><span class="line">            trie[root][next] = ++cnt;</span><br><span class="line">        root = trie[root][next];</span><br><span class="line">    &#125;</span><br><span class="line">    cntword[root]++;      <span class="comment">//当前节点单词数+1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFail</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;      <span class="comment">//将第二层所有出现了的字母扔进队列</span></span><br><span class="line">        <span class="keyword">if</span>(trie[<span class="number">0</span>][i])&#123;</span><br><span class="line">            fail[trie[<span class="number">0</span>][i]] = <span class="number">0</span>;</span><br><span class="line">            q.push(trie[<span class="number">0</span>][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//fail[now]    -&gt;当前节点now的失败指针指向的地方</span></span><br><span class="line">tire[now][i] -&gt; 下一个字母为i+<span class="string">&#x27;a&#x27;</span>的节点的下标为tire[now][i]</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> now = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;      <span class="comment">//查询26个字母</span></span><br><span class="line">            <span class="keyword">if</span>(trie[now][i])&#123;</span><br><span class="line">                <span class="comment">//如果有这个子节点为字母i+&#x27;a&#x27;,则</span></span><br><span class="line"><span class="comment">//让这个节点的失败指针指向(((他父亲节点)的失败指针所指向的那个节点)的下一个节点)</span></span><br><span class="line">                <span class="comment">//有点绕,为了方便理解特意加了括号</span></span><br><span class="line"></span><br><span class="line">                fail[trie[now][i]] = trie[fail[now]][i];</span><br><span class="line">                q.push(trie[now][i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span><span class="comment">//否则就让当前节点的这个子节点</span></span><br><span class="line">                <span class="comment">//指向当前节点fail指针的这个子节点</span></span><br><span class="line">                trie[now][i] = trie[fail[now]][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">0</span>,ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;    <span class="comment">//遍历文本串</span></span><br><span class="line">        now = trie[now][s[i]-<span class="string">&#x27;a&#x27;</span>];  <span class="comment">//从s[i]点开始寻找</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=now;j &amp;&amp; cntword[j]!=<span class="number">-1</span>;j=fail[j])&#123;</span><br><span class="line">            <span class="comment">//一直向下寻找,直到匹配失败(失败指针指向根或者当前节点已找过).</span></span><br><span class="line">            ans += cntword[j];</span><br><span class="line">            cntword[j] = <span class="number">-1</span>;    <span class="comment">//将遍历国后的节点标记,防止重复计算</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s ;</span><br><span class="line">        insertWords(s);</span><br><span class="line">    &#125;</span><br><span class="line">    fail[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    getFail();</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s ;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; query(s) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="cke9havmj00075zfiexei2gov" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ckgruva2m000929figg8mdbr9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1015,7 +1138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-id="cke9havma00045zfib44i261c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-id="ckgruva2g000729fi89hm04oo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1378,7 +1501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/22/os/" data-id="cke9havmb00055zfi74bxav2l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/22/os/" data-id="ckgruva2e000629fi92eu2evf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1406,7 +1529,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
     </div>
   </div>
 
@@ -1419,6 +1542,14 @@
       <ul>
         
           <li>
+            <a href="/2020/10/11/DSP_FIR%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D%E7%B3%BB%E7%BB%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/10/DSP_%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%87%87%E6%A0%B7/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/22/gcc%E6%8C%87%E4%BB%A4%E5%8F%82%E6%95%B0%E9%9B%86%E5%90%88/">gcc指令参数集</a>
           </li>
         
@@ -1428,14 +1559,6 @@
         
           <li>
             <a href="/2020/08/22/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">语言学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/22/%E9%80%9A%E8%AE%AF%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">通信原理与计算机网络</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记与整理</a>
           </li>
         
       </ul>
